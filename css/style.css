@@ -473,3 +473,19 @@ input.button {
 .error{
 	color: red;
 }
+
+.container {
+width:590px;
+margin:0 auto;
+position:relative;
+}
+
+#leftbox {
+float:left;
+width:200px;
+}
+
+#rightbox {
+float:right;
+width:360px;
+}
