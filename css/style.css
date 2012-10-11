@@ -58,7 +58,7 @@ img.float-right {
 img.float-left {
   margin: 5px 15px 5px 0px;
 }
-/*
+
 code {
   margin: 5px 0;
   padding: 10px;
@@ -69,7 +69,7 @@ code {
   /* white-space: pre; */   
   background: #FCFCF9;
   border: 1px solid #EFEFEF;
-}*/
+}
 acronym {
   cursor: help;
   border-bottom: 1px solid #777;
@@ -496,3 +496,100 @@ width:360px;
 
 /* Clearing fix */
 .clearfix:after{clear:both;content:".";display:block;height:0;visibility:hidden;}
+
+.knitr.inline {
+  background-color: #f7f7f7;
+  border:solid 1px #B0B0B0;
+}
+.error {
+  font-weight: bold;
+	color: #FF0000;
+}, 
+.warning {
+	font-weight: bold;
+} 
+.message {
+	font-style: italic;
+} 
+.source, .output, .warning, .error, .message {
+	padding: 0em 1em;
+  border:solid 1px #F7F7F7;
+}
+.source {
+  background-color: #f7f7f7;
+}
+.rimage.left {
+  text-align: left;
+}
+.rimage.right {
+  text-align: right;
+}
+.rimage.center {
+  text-align: center;
+}
+
+.source {
+  color: #333333;
+}
+.background {
+  color: #F7F7F7;
+}
+
+.number {
+  color: #000000;
+}
+
+.functioncall {
+  color: #800054;
+  font-weight: bolder;
+}
+
+.string {
+  color: #9999FF;
+}
+
+.keyword {
+  font-weight: bolder;
+  color: black;
+}
+
+.argument {
+  color: #B04005;
+}
+
+.comment {
+  color: #2E9957;
+}
+
+.roxygencomment {
+  color: #707AB3;
+}
+
+.formalargs {
+  color: #B04005;
+}
+
+.eqformalargs {
+  color: #B04005;
+}
+
+.assignement {
+  font-weight: bolder;
+  color: #000000;
+}
+
+.package {
+  color: #96B525;
+}
+
+.slot {
+  font-style: italic;
+}
+
+.symbol {
+  color: #000000;
+}
+
+.prompt {
+  color: #333333;
+}
