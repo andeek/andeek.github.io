@@ -58,7 +58,7 @@ img.float-right {
 img.float-left {
   margin: 5px 15px 5px 0px;
 }
-
+/*
 code {
   margin: 5px 0;
   padding: 10px;
@@ -69,7 +69,7 @@ code {
   /* white-space: pre; */   
   background: #FCFCF9;
   border: 1px solid #EFEFEF;
-}
+}*/
 acronym {
   cursor: help;
   border-bottom: 1px solid #777;
