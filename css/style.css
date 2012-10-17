@@ -499,14 +499,14 @@ width:360px;
 
 .knitr.r {
   background-color: #f7f7f7;
-  border:solid 1px #B0B0B0;
-  font-size: 10em
+  /*border:solid 1px #B0B0B0;*/
+  font-size: 1.7em
 }
 
 .knitr.inline {
   background-color: #f7f7f7;
-  border:solid 1px #B0B0B0;
-  font-size: 10em
+  /*border:solid 1px #B0B0B0;*/
+  font-size: 1.7em
 }
 .error {
 	font-weight: bold;
@@ -519,7 +519,7 @@ width:360px;
 	font-style: italic;
 } 
 .source, .output, .warning, .error, .message {
-	padding: 0em 1em;
+  padding: 0em 1em;
   border:solid 1px #F7F7F7;
 }
 .source {
