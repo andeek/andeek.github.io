@@ -497,76 +497,101 @@ width:360px;
 /* Clearing fix */
 .clearfix:after{clear:both;content:".";display:block;height:0;visibility:hidden;}
 
-.knitr {
-	background-color: #F7F7F7;
+
+.knitr.inline {
+  background-color: #f7f7f7;
+  border:solid 1px #B0B0B0;
+  font-size: 10em
 }
 .error {
 	font-weight: bold;
 	color: #FF0000;
-}
+}, 
 .warning {
 	font-weight: bold;
-}
+} 
 .message {
 	font-style: italic;
-}
+} 
 .source, .output, .warning, .error, .message {
-	padding: 0.5em 1em;
+	padding: 0em 1em;
+  border:solid 1px #F7F7F7;
 }
-.number{
-	color: rgb(21,20,181) ;
+.source {
+  background-color: #f7f7f7;
 }
-
-.functioncall{
-	color: red ;
+.rimage.left {
+  text-align: left;
 }
-
-.string{
-	color: rgb(153,153,255) ;
+.rimage.right {
+  text-align: right;
 }
-
-.keyword{
-	font-weight: bolder ;
-	color: black;
+.rimage.center {
+  text-align: center;
 }
 
-.argument{
-	color: rgb( 177,63,5) ;
+.source {
+  color: #333333;
+}
+.background {
+  color: #F7F7F7;
 }
 
-.comment{
-	color: rgb( 204,204,204) ;
+.number {
+  color: #000000;
 }
 
-.roxygencomment{
-	color: rgb(0,151,255);
+.functioncall {
+  color: #800054;
+  font-weight: bolder;
 }
 
-.formalargs{
-	color: rgb(18,182,18);
+.string {
+  color: #9999FF;
 }
 
-.eqformalargs{
-	color: rgb(18,182,18);
+.keyword {
+  font-weight: bolder;
+  color: black;
 }
 
-.assignement{
-	font-weight: bolder;
-	color: rgb(55,55,98);
+.argument {
+  color: #B04005;
 }
 
-.package{
-	color: rgb(150,182,37);
+.comment {
+  color: #2E9957;
 }
 
-.slot{
-	font-style:italic;
+.roxygencomment {
+  color: #707AB3;
 }
 
-.symbol{
-	color: black ;
+.formalargs {
+  color: #B04005;
 }
 
-.prompt{
-	color: black ;
+.eqformalargs {
+  color: #B04005;
+}
+
+.assignement {
+  font-weight: bolder;
+  color: #000000;
+}
+
+.package {
+  color: #96B525;
+}
+
+.slot {
+  font-style: italic;
+}
+
+.symbol {
+  color: #000000;
+}
+
+.prompt {
+  color: #333333;
 }
