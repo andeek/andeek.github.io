@@ -497,6 +497,11 @@ width:360px;
 /* Clearing fix */
 .clearfix:after{clear:both;content:".";display:block;height:0;visibility:hidden;}
 
+.knitr.r {
+  background-color: #f7f7f7;
+  border:solid 1px #B0B0B0;
+  font-size: 10em
+}
 
 .knitr.inline {
   background-color: #f7f7f7;
