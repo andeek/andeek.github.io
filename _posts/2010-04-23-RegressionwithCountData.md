@@ -1,13 +1,13 @@
 ---
 layout: post_ak
-title: Regression with Count Data: Theory
+title: "Regression with Count Data: Theory"
 root: "../../../../"
 comments: true
 ---
 
 **The set up:** You've been asked to find the relationship between n variables. You automatically think REGRESSION! Of course you're right. and if you're like me, you think Multivariate Linear Regression should do the trick. This is where the hitch is. Your dependent variable is a count (0,1,2,3,.)! Surely this violates some sort of Ordinary Least Squares assumption, right? What now?
 
-**The solution:** Count data regression is as simple as linear regression, it just requires a different model. The obvious model from statistics is the Poisson with mean ??. Why is this an obvious model? Let's see how the Poisson distribution fits over some sample count data:
+**The solution:** Count data regression is as simple as linear regression, it just requires a different model. The obvious model from statistics is the Poisson with mean $\lambda$. Why is this an obvious model? Let's see how the Poisson distribution fits over some sample count data:
 
 ![Poission Distribution]({{ page.root }}images/blog/04232010poisson.jpg)
 
