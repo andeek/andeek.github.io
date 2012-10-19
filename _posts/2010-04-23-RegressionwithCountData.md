@@ -38,7 +38,7 @@ This tells us that with every one unit change in the jth regressor, there is a c
 
 **Alternative Count Models:** The Poisson model, while simple to use and easy to remember does have its draw backs. Namely, it restricts the variance to equal the mean, called equidispersion. Of course, this assumption doesn't necessarily hold in your data. The data is called overdispersed if the variance exceeds the mean and underdispersed if the variance is less than the mean. Unless the count data is equidispersed, the Poisson model leads to innacurate results.
 
-<img src="{{ page.root }}images/blog/04232010disp.jpg" alt="Dispersion" width="590px">
+<img src="{{ page.root }}images/blog/04232010disp.jpg" alt="Dispersion" width="560px">
 
 A common, more general model is the Negative Binomial model. The Poisson distribution is simply one case of the Negative Binomial distribution. So, Negative Binomial regression is performed in much the same manner as Poisson, but with more felxibility. This model can be used when the data is overdispersed, but not underdispersed.
 
