@@ -5,7 +5,7 @@ root: "../../../../"
 comments: true
 ---
 
-**The set up:** You've been asked to find the relationship between n variables. You automatically think REGRESSION! Of course you're right. and if you're like me, you think Multivariate Linear Regression should do the trick. This is where the hitch is. Your dependent variable is a count (0,1,2,3,.)! Surely this violates some sort of Ordinary Least Squares assumption, right? What now?
+**The set up:** You've been asked to find the relationship between n variables. You automatically think REGRESSION! Of course you're right. and if you're like me, you think Multivariate Linear Regression should do the trick. This is where the hitch is. Your dependent variable is a count (0,1,2,3,$\dots$)! Surely this violates some sort of Ordinary Least Squares assumption, right? What now?
 
 **The solution:** Count data regression is as simple as linear regression, it just requires a different model. The obvious model from statistics is the Poisson with mean $\lambda$. Why is this an obvious model? Let's see how the Poisson distribution fits over some sample count data:
 
@@ -38,7 +38,7 @@ This tells us that with every one unit change in the jth regressor, there is a c
 
 **Alternative Count Models:** The Poisson model, while simple to use and easy to remember does have its draw backs. Namely, it restricts the variance to equal the mean, called equidispersion. Of course, this assumption doesn't necessarily hold in your data. The data is called overdispersed if the variance exceeds the mean and underdispersed if the variance is less than the mean. Unless the count data is equidispersed, the Poisson model leads to innacurate results.
 
-![Dispersion]({{ page.root }}images/blog/04232010disp.jpg)
+<img src="{{ page.root }}images/blog/04232010disp.jpg" alt="Dispersion" width="590px">
 
 A common, more general model is the Negative Binomial model. The Poisson distribution is simply one case of the Negative Binomial distribution. So, Negative Binomial regression is performed in much the same manner as Poisson, but with more felxibility. This model can be used when the data is overdispersed, but not underdispersed.
 
