@@ -15,15 +15,15 @@ You can see the distribution fits (maybe not the best fit, but what do you expec
 
 **The Model:** The Poisson regression model takes a general form:
 
-\\[E[y_i \textbar x_i]= \lambda_i = exp (\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}).\\]
+\\[ E[y_i\vert x_i]= \lambda_i = exp (\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}). \\]
 
 Compare the Poisson regression model to the a general linear regression model:
 
-\\[E[y_i \textbar x_i] = \mu_i = \beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}.\\]
+\\[ E[y_i\vert x_i] = \mu_i = \beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}. \\]
 
 As you can see, the Poisson model can be easily transformed to the linear regression model by taking the natual log of the whole equation:
 
-\\[ln E[y_i \textbar x_i]=ln \lambda_i = ln exp(\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}) = \beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki} = \mu_i\\]
+\\[ ln E[y_i\vert x_i]=ln \lambda_i = ln exp(\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}) = \beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki} = \mu_i \\]
 
 Thus the Poisson regression model is sometimes called the log-linear model.
 
@@ -31,9 +31,9 @@ Thus the Poisson regression model is sometimes called the log-linear model.
 
 If you think about interpreting the coefficients this way: "What does a one unit change in the jth regressor do to the mean?", then some calculus and algebra are necessary:
 
-\\[\frac{\delta E[y_i \textbar x_i]}{\delta x_{ji}} = \frac{\delta[ exp(\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki})]}{\delta x_{ji}} = \beta_j exp(\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}) = \beta_j E[y_i \textbar x_i]\\]
+\\[ \frac{\delta E[y_i\vert x_i]}{\delta x_{ji}} = \frac{\delta[ exp(\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki})]}{\delta x_{ji}} = \beta_j exp(\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}) = \beta_j E[y_i\vert x_i] \\]
 
-This tells us that with every one unit change in the jth regressor, there is a change in the mean by the amount \\(\beta_j E[y_i \textbar x_i]\\). For reference, the linear model's mean would simply change by \\(\beta_j\\).
+This tells us that with every one unit change in the jth regressor, there is a change in the mean by the amount \\(\beta_j E[y_i\vert x_i]\\). For reference, the linear model's mean would simply change by \\(\beta_j\\).
 
 **Alternative Count Models:** The Poisson model, while simple to use and easy to remember does have its draw backs. Namely, it restricts the variance to equal the mean, called equidispersion. Of course, this assumption doesn't necessarily hold in your data. The data is called overdispersed if the variance exceeds the mean and underdispersed if the variance is less than the mean. Unless the count data is equidispersed, the Poisson model leads to innacurate results.
 
