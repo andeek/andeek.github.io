@@ -13,25 +13,17 @@ comments: true
 
 You can see the distribution fits (maybe not the best fit, but what do you expect with the simplest model?) and we can move on to talk about how the model is structured.
 
-**The Model:** The Poisson regression model takes a general form:
+**The Model:** The Poisson regression model takes a general form: \\[ \text{E[}y_i\vert x_i\text{]}= \lambda_i = \text{exp} (\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}). \\]
 
-\\[ \text{E[}y_i\vert x_i\text{]}= \lambda_i = \text{exp} (\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}). \\]
+Compare the Poisson regression model to the a general linear regression model: \\[ E[y_i\vert x_i] = \mu_i = \beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}. \\]
 
-Compare the Poisson regression model to the a general linear regression model:
-
-\\[ E[y_i\vert x_i] = \mu_i = \beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}. \\]
-
-As you can see, the Poisson model can be easily transformed to the linear regression model by taking the natual log of the whole equation:
-
-\\[ ln E[y_i\vert x_i]=ln \lambda_i = ln exp(\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}) = \beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki} = \mu_i \\]
+As you can see, the Poisson model can be easily transformed to the linear regression model by taking the natual log of the whole equation: \\[ ln E[y_i\vert x_i]=ln \lambda_i = ln exp(\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}) = \beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki} = \mu_i \\]
 
 Thus the Poisson regression model is sometimes called the log-linear model.
 
 **Interpretation of Coefficients:** The interpretation of the coefficients \\(\beta_j\\) for the Poisson model is fundamentally different from the interpretation of coefficients in the linear regression model. This is due to the exponentiation present in the Poisson model.
 
-If you think about interpreting the coefficients this way: "What does a one unit change in the jth regressor do to the mean?", then some calculus and algebra are necessary:
-
-\\[ \frac{\delta E[y_i\vert x_i]}{\delta x_{ji}} = \frac{\delta[ exp(\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki})]}{\delta x_{ji}} = \beta_j exp(\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}) = \beta_j E[y_i\vert x_i] \\]
+If you think about interpreting the coefficients this way: "What does a one unit change in the jth regressor do to the mean?", then some calculus and algebra are necessary: \\[ \frac{\delta E[y_i\vert x_i]}{\delta x_{ji}} = \frac{\delta[ exp(\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki})]}{\delta x_{ji}} = \beta_j exp(\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}) = \beta_j E[y_i\vert x_i] \\]
 
 This tells us that with every one unit change in the jth regressor, there is a change in the mean by the amount \\(\beta_j E[y_i\vert x_i]\\). For reference, the linear model's mean would simply change by \\(\beta_j\\).
 
