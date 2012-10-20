@@ -15,3 +15,4 @@ navigation:
   url: /coursework.html
 - text: Blog
   url: /blog.html
+  layout: post_ak
