@@ -31,7 +31,7 @@ This tells us that with every one unit change in the jth regressor, there is a c
 
 <img src="{{ page.root }}images/blog/04232010disp.jpg" alt="Dispersion" width="560px">
 
-A common, more general model is the Negative Binomial model. The Poisson distribution is simply one case of the Negative Binomial distribution. So, Negative Binomial regression is performed in much the same manner as Poisson, but with more felxibility. This model can be used when the data is overdispersed, but not underdispersed.
+A common, more general model is the Negative Binomial model. The Poisson distribution is simply one case of the Negative Binomial distribution. So, Negative Binomial regression is performed in much the same manner as Poisson, but with more flexibility. This model can be used when the data is overdispersed, but not underdispersed.
 
 If your data is underdispersed, a common solution is to use a Hurdle model. This model treats the process for zeros differently than that for non-zero counts, allowing for a closer fit on zero-inflated data.
 
@@ -39,6 +39,6 @@ If your data is underdispersed, a common solution is to use a Hurdle model. This
 Well, that's a pretty short introduction to the world of Count Data Regression. If you're interested in learning more, check out [Essentials of Count Data Regression](http://cameron.econ.ucdavis.edu/research/CTE01preprint.pdf) or [Resources for Count Data Regression](http://cameron.econ.ucdavis.edu/racd/count.html) both provided by Cameron and Trivedi.
 
 Also, be on the look out for an example of working with count data!
-\\[\beta_j\\]
+\\[\frac{\delta E[y_i\vert x_i]}{\delta x_{ji}} = \frac{\delta[ exp(\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki})]}{\delta x_{ji}} = \beta_j exp(\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}) = \beta_j E[y_i\vert x_i]\\]
 
 
