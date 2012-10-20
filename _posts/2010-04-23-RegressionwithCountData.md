@@ -27,7 +27,7 @@ As you can see, the Poisson model can be easily transformed to the linear regres
 
 Thus the Poisson regression model is sometimes called the log-linear model.
 
-**Interpretation of Coefficients:** The interpretation of the coefficients (\\(\beta_j\\) for the Poisson model is fundamentally different from the interpretation of coefficients in the linear regression model. This is due to the exponentiation present in the Poisson model.
+**Interpretation of Coefficients:** The interpretation of the coefficients \\(\beta_j\\) for the Poisson model is fundamentally different from the interpretation of coefficients in the linear regression model. This is due to the exponentiation present in the Poisson model.
 
 If you think about interpreting the coefficients this way: "What does a one unit change in the jth regressor do to the mean?", then some calculus and algebra are necessary:
 
