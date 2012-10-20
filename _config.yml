@@ -4,7 +4,7 @@ permalink: /:year/:month/:day/:title
 rdiscount extensions: [smart]
 navigation:
 - text: Home
-  url: /
+  url: /index.html
 - text: CV
   url: /cv.html
 - text: Teaching
@@ -14,4 +14,4 @@ navigation:
 - text: Coursework
   url: /coursework.html
 - text: Blog
-  url: /en/blog/
+  url: /blog.html
