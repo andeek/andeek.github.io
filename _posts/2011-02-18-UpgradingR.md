@@ -1,6 +1,6 @@
 ---
 layout: post_ak
-title: "Upgrading R – Have no fear!"
+title: "Upgrading R - Have no fear!"
 root: "../../../../"
 comments: true
 ---
