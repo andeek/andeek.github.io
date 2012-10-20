@@ -5,16 +5,15 @@ root: "../../../../"
 comments: true
 ---
 
-**The set up:** You've been asked to find the relationship between n variables. You automatically think REGRESSION! Of course you're right. and if you're like me, you think Multivariate Linear Regression should do the trick. This is where the hitch is. Your dependent variable is a count (0,1,2,3,\\(dots\\))! Surely this violates some sort of Ordinary Least Squares assumption, right? What now?
+**The set up:** You've been asked to find the relationship between n variables. You automatically think REGRESSION! Of course you're right. and if you're like me, you think Multivariate Linear Regression should do the trick. This is where the hitch is. Your dependent variable is a count (0,1,2,3,\\(\dots\\))! Surely this violates some sort of Ordinary Least Squares assumption, right? What now?
 
-**The solution:** Count data regression is as simple as linear regression, it just requires a different model. The obvious model from statistics is the Poisson with mean \\(lambda\\). Why is this an obvious model? Let's see how the Poisson distribution fits over some sample count data:
+**The solution:** Count data regression is as simple as linear regression, it just requires a different model. The obvious model from statistics is the Poisson with mean \\(\lambda\\). Why is this an obvious model? Let's see how the Poisson distribution fits over some sample count data:
 
 ![Poission Distribution]({{ page.root }}images/blog/04232010poisson.jpg)
 
 You can see the distribution fits (maybe not the best fit, but what do you expect with the simplest model?) and we can move on to talk about how the model is structured.
 
 **The Model:** The Poisson regression model takes a general form:
-
 
 \\[E[y_i|x_i]= \lambda_i = exp (\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}).\\]
 
@@ -24,7 +23,7 @@ Compare the Poisson regression model to the a general linear regression model:
 
 As you can see, the Poisson model can be easily transformed to the linear regression model by taking the natual log of the whole equation:
 
-\\[ln E[y_i|x_i] =ln \lambda_i = ln exp(\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}) = \beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki} = \mu_i\\]
+\\[ln E[y_i|x_i]=ln \lambda_i = ln exp(\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}) = \beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki} = \mu_i\\]
 
 Thus the Poisson regression model is sometimes called the log-linear model.
 
