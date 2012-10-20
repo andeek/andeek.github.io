@@ -21,8 +21,15 @@
 		<script type="text/javascript" src="js/jquery-validate/jquery.validate.min.js"></script>
 		<script type="text/javascript" src="js/jquery.query-2.1.7.js"></script>
 		<script type="text/javascript" src="js/jqURL.js"></script>
-		<script type="text/javascript" src="js/custom.js"></script>	
 		<script src="https://raw.github.com/mathjax/MathJax/master/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+			$("ul.navigation li").click(function() {
+			  // set tab
+			  $("ul.navigation li.current").removeClass("current");
+			  $(this).addClass("current");
+			});
+		</script>
 	</head>
 	
 	<body>		

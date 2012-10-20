@@ -250,6 +250,9 @@ input.button {
 #header-content li a#current  {	
 	color: #FFF;	
 }
+#header-content li a.current  {	
+	color: #FFF;	
+}
 
 #header-content #header-links {
 	position: absolute;
