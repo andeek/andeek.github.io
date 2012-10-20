@@ -14,7 +14,7 @@ comments: true
 You can see the distribution fits (maybe not the best fit, but what do you expect with the simplest model?) and we can move on to talk about how the model is structured.
 
 **The Model:** The Poisson regression model takes a general form: 
-\\[ \text{E\[}y_i\vert x_i\text{\]} = \lambda_i  \\]
+\\[ \text{E\[}y_i\vert x_i\text{\]} = \lambda_i = \text{exp} \(\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}\). \\]
 
 Compare the Poisson regression model to the a general linear regression model: \\[ \text{E\[}y_i\vert x_i\\] = \mu_i = \beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}. \\]
 
