@@ -48,9 +48,9 @@
 				<li><a href="{{ page.root }}blog.html" >Blog</a></li>	 -->
 				{% for node in site.pages %}
 					{% if page.url == node.url %}
-					  <li class="current"><a href="{{node.url}}" class="current">{{node.title}}</a></li>
+					  <li class="current"><a href="{{node.url}}" class="current">{{node.pagetitle}}</a></li>
 					{% else %}
-					  <li><a href="{{node.url}}">{{node.title}}</a></li>
+					  <li><a href="{{node.url}}">{{node.pagetitle}}</a></li>
 					{% endif %}
 				{% endfor %}
 			</ul>					
