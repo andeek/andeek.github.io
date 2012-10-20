@@ -22,14 +22,6 @@
 		<script type="text/javascript" src="js/jquery.query-2.1.7.js"></script>
 		<script type="text/javascript" src="js/jqURL.js"></script>
 		<script src="https://raw.github.com/mathjax/MathJax/master/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-		
-		<script type="text/javascript">
-			$("ul.navigation li").click(function() {
-			  // set tab
-			  $("ul.navigation li.current").removeClass("current");
-			  $(this).addClass("current");
-			});
-		</script>
 	</head>
 	
 	<body>		
@@ -48,12 +40,19 @@
 			
 			<!-- Menu Tabs -->
 			<ul>
-				<li><a href="{{ page.root }}index.html" class="current" >Home</a></li>
+				<!-- <li><a href="{{ page.root }}index.html" class="current" >Home</a></li>
 				<li><a href="{{ page.root }}cv.html" >CV</a></li>
 				<li><a href="{{ page.root }}teaching.html" >Teaching</a></li>
 				<li><a href="{{ page.root }}research.html" >Research</a></li>
 				<li><a href="{{ page.root }}coursework.html" >Coursework</a></li>
-				<li><a href="{{ page.root }}blog.html" >Blog</a></li>	
+				<li><a href="{{ page.root }}blog.html" >Blog</a></li>	 -->
+				{% for node in site.pages %}
+					{% if page.url == node.url %}
+					  <li class="current"><a href="{{node.url}}" class="current">{{node.title}}</a></li>
+					{% else %}
+					  <li><a href="{{node.url}}">{{node.title}}</a></li>
+					{% endif %}
+				{% endfor %}
 			</ul>					
 		</div></div>
 		
