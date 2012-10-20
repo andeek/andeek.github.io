@@ -15,7 +15,7 @@ You can see the distribution fits (maybe not the best fit, but what do you expec
 
 **The Model:** The Poisson regression model takes a general form:
 
-\\[ E[y_i\vert x_i]= \lambda_i = exp (\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}). \\]
+\\[ \text{E[}y_i\vert x_i\text{]}= \lambda_i = \text{exp} (\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}). \\]
 
 Compare the Poisson regression model to the a general linear regression model:
 
