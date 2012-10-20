@@ -40,12 +40,6 @@
 			
 			<!-- Menu Tabs -->
 			<ul>
-				<!-- <li><a href="{{ page.root }}index.html" class="current" >Home</a></li>
-				<li><a href="{{ page.root }}cv.html" >CV</a></li>
-				<li><a href="{{ page.root }}teaching.html" >Teaching</a></li>
-				<li><a href="{{ page.root }}research.html" >Research</a></li>
-				<li><a href="{{ page.root }}coursework.html" >Coursework</a></li>
-				<li><a href="{{ page.root }}blog.html" >Blog</a></li>	 -->
 				{% for link in site.navigation %}
 				  {% assign current = nil %}
 				  {% if page.url == link.url or page.layout == link.layout %}
