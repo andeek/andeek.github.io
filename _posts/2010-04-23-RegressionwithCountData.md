@@ -39,6 +39,6 @@ If your data is underdispersed, a common solution is to use a Hurdle model. This
 Well, that's a pretty short introduction to the world of Count Data Regression. If you're interested in learning more, check out [Essentials of Count Data Regression](http://cameron.econ.ucdavis.edu/research/CTE01preprint.pdf) or [Resources for Count Data Regression](http://cameron.econ.ucdavis.edu/racd/count.html) both provided by Cameron and Trivedi.
 
 Also, be on the look out for an example of working with count data!
-\\[\frac{\delta E[y_i\vert x_i]}{\delta x_{ji}} = \frac{\delta[ exp(\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki})]}{\delta x_{ji}} = \beta_j exp(\beta_1 + \beta_2 x_{2i} + \dots + \beta_k x_{ki}) = \beta_j E[y_i\vert x_i]\\]
+\\[\frac{\beta}{\alpha}\\]
 
 
