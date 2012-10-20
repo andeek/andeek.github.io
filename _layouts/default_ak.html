@@ -46,12 +46,14 @@
 				<li><a href="{{ page.root }}research.html" >Research</a></li>
 				<li><a href="{{ page.root }}coursework.html" >Coursework</a></li>
 				<li><a href="{{ page.root }}blog.html" >Blog</a></li>	 -->
-				{% for node in site.pages %}
-					{% if page.url == node.url %}
-					  <li class="current"><a href="{{node.url}}" class="current">{{node.pagetitle}}</a></li>
-					{% else %}
-					  <li><a href="{{node.url}}">{{node.pagetitle}}</a></li>
-					{% endif %}
+				{% for link in site.navigation %}
+				  {% assign current = nil %}
+				  {% if page.url == link.url or page.layout == link.layout %}
+					{% assign current = 'current' %}
+				  {% endif %}
+				  <li class="{% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
+					<a class="{{ current }}" href="{{ link.url }}">{{ link.text }}</a>
+				  </li>
 				{% endfor %}
 			</ul>					
 		</div></div>
@@ -60,7 +62,7 @@
 		<div id="content-wrap"><div id="content">	 
 			<div id="main">		
 				<a name="MainBlog"></a>
-				<h1>{% if page.title %} {{ page.title }} {% endif %}</h1>
+				{% if page.title %}<h1>{{ page.title }}</h1>{% endif %}
 				{{ content }}
 			</div>
 			

@@ -2,3 +2,16 @@ auto: true
 markdown: kramdown
 permalink: /:year/:month/:day/:title
 rdiscount extensions: [smart]
+navigation:
+- text: Home
+  url: /
+- text: CV
+  url: /cv.html
+- text: Teaching
+  url: /teaching.html
+- text: Research
+  url: /research.html
+- text: Coursework
+  url: /coursework.html
+- text: Blog
+  url: /en/blog/
