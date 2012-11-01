@@ -11,7 +11,7 @@ I have been working hard to solve this problem, but the solution was simple: bac
 Before you upgrade, run the following code:
 
 
-```r
+```{r}
 IP <- as.data.frame(installed.packages())
 MyPkgs <- subset(IP, !Priority %in% c("base", "recommended"), select = Package)
 save(MyPkgs, file = paste(getwd(), "/MyPkgs.Rdata", sep = ""))
@@ -23,7 +23,7 @@ First, IP is assigned as a list of all installed packages. This list is filtered
 After you have upgraded to the newest and coolest R ever, run the next block:
 
 
-```r
+```{r}
 load(paste(getwd(), "/MyPkgs.Rdata", sep = ""))
 install.packages(as.vector(MyPkgs$Package), repos = "http://cran.r-project.org")
 ```
