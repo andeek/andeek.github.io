@@ -27,10 +27,4 @@ After you have upgraded to the newest and coolest R ever, run the next block:
 load(paste(getwd(), "/MyPkgs.Rdata", sep = ""))
 install.packages(as.vector(MyPkgs$Package), repos = "http://cran.r-project.org")
 ```
-```ruby
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
-```
-
 This will load your newly created backup file and install all those packages from the CRAN repository. Continue enjoying your old functions with all the added benefits of a new version! You're welcome.
