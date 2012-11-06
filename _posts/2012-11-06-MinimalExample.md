@@ -1,6 +1,6 @@
 ---
 layout: post_ak
-title: "Minimal Example"
+title: Minimal Example
 root: "../../../../"
 comments: true
 ---
