@@ -20,23 +20,10 @@ See [output here](https://github.com/yihui/knitr-examples/blob/master/001-minima
 
 A _paragraph_ here. A code chunk below (remember the three backticks):
 
-
-```r
-1 + 1
-```
-
-```
-## [1] 2
-```
-
-```r
-0.4 - 0.7 + 0.3  # what? it is not zero!
-```
-
-```
-## [1] 5.551e-17
-```
-
+{% highlight r %}
+1+1
+.4-.7+.3 # what? it is not zero!
+{% endhighlight r %}
 
 ## graphics
 
