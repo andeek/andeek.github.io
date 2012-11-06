@@ -23,7 +23,7 @@ A _paragraph_ here. A code chunk below (remember the three backticks):
 {% highlight r %}
 1+1
 .4-.7+.3 # what? it is not zero!
-{% endhighlight r %}
+{% endhighlight %}
 
 ## graphics
 
