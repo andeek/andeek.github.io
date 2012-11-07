@@ -7,7 +7,7 @@ root: ""
 <div class="content">
   <div class="related">
     {% for post in site.posts %}
-      <span>post.date | date: "%Y"</span>
+      <span>{{post.date | date: "%Y"}}</span>
     {% endfor %}
     
     <ul>
