@@ -7,7 +7,16 @@ root: ""
 <div class="content">
   <div class="related">
     {% for post in site.posts %}
-      <span>{{post.date | date: "%Y"}}</span>
+      <ul>
+        <li class="listing seperator"><span>{{post.date | date: "%Y"}}</span></li>
+        {% for post1 in site.posts %}
+        {% if post1.date | date: "%Y" == post.date | date: "%Y"%}
+          <li class="listing-item"><span>{{ post1.date | date: "%B %e, %Y" }}</span> <a href="{{ post.url }}">{{ post.title }}</a>
+		  </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+      
     {% endfor %}
     
     <ul>
