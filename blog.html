@@ -6,8 +6,12 @@ root: ""
 
 <div class="content">
   <div class="related">
+    {% for post in site.posts %}
+      <span>post.date | date: "%Y"</span>
+    {% endfor %}
+    
     <ul>
-		{{ site.posts.date | date: "%Y" }}
+		
 	  <!--{% for year in site.posts.date | date: "%Y" %}
 		<li class="listing-seperator"><span>{{ year }}</span></li>
 	  {% for post in site.posts %}
