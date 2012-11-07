@@ -6,21 +6,34 @@ root: ""
 
 <div class="content">
   <div class="related">
-    {% for post in site.posts %}
+    
+	
+	
+	
+	
+	<!--{% for post in site.posts %}
       <ul>
-        <li class="listing seperator"><span>{{post.date | date: "%Y"}}</span></li>
+        <li class="listing-seperator"><span>{{post.date | date: "%Y"}}</span></li>
         {% for post1 in site.posts %}
         {% if post1.date | date: "%Y" == post.date | date: "%Y"%}
-          <li class="listing-item"><span>{{ post1.date | date: "%B %e, %Y" }}</span> <a href="{{ post.url }}">{{ post.title }}</a>
+          <li class="listing-item"><time datetime={{ post1.date | date: "%B %e, %Y" }}></time>{{ post1.date | date: "%B %e, %Y" }}<a href="{{ post.url }}">{{ post.title }}</a>
 		  </li>
         {% endif %}
         {% endfor %}
       </ul>
       
     {% endfor %}
+    -->
     
-    <ul>
-		
+	<ul>
+		<li class="listing-seperator">2010</li>
+		{% for post in site.posts %}
+		{% if {{ post.date | date: "%Y" }} == 2010 %}
+		<li class="listing-item">
+			<span>{{ post.date | date: "%B %e, %Y" }}</span> <a href="{{ post.url }}">{{ post.title }}</a>
+		</li>	
+		{% endif %}
+		{% endfor %}
 	  <!--{% for year in site.posts.date | date: "%Y" %}
 		<li class="listing-seperator"><span>{{ year }}</span></li>
 	  {% for post in site.posts %}
