@@ -1,0 +1,118 @@
+---
+layout: post_ak
+title: Connecting R to Data Sources (ODBC)
+root: "../../../../"
+comments: true
+---
+<h3>Import data directly from data sources such as Oracle, MySQL, Microsoft SQL Server, Microsoft Access, Microsoft Excel, and more.</h3>
+
+<img src="{{ page.root }}images/blog/odbc_diagram.png" alt="ODBC Diagram">
+
+<p>In this example, I will connect R to an Oracle database.  Some of the steps below will only need to be completed once.  Others, as indicated, must be performed each time you open R.</p>
+
+<h4>Step 1:  Configuring the ODBC Driver on your computer.</h4>
+<b>1st Time Only:</b>  From the Start Menu on your computer:
+<ol>
+  <li>Control Panel
+  <li>Administrative Tools
+  <li>Data Sources (ODBC)
+  <li>Select "Add"
+  <li>Scroll Down to Driver Name (in my example OraClient10g_home1)
+  <li>Data Source Name: Choose name
+  <li>Specify Data Source Configuration
+  <ul>
+    <li>(Specific to Oracle) TNS Service Names: Select from dropdown
+    <li>(Specific to Oracle) User ID - login hint: if you connect to your database through Toad, the login will be identical
+  </ul>
+</ol>
+
+<h4>Step 2:  Creating the connection between R and ODBC Driver.</h4>
+<b>1st Time Only:</b> In the R Console:  
+<!--begin.rcode eval=FALSE
+install.packages("RODBC")
+end.rcode-->
+<b>Each Time You Open R:</b> In the R Console:
+<ol>
+<li>Load the RODBC package; type:
+<!--begin.rcode eval=FALSE
+library(RODBC)
+end.rcode-->
+<li>Create the connection; type:
+<!--begin.rcode eval=FALSE
+con<-odbcDriverConnect()
+end.rcode-->
+<i>(opens a Select Data Source window with two tabs)</i>
+<li>Select "Machine Data Source" tab
+<li>Click on desired Data Source Name and press enter
+<li>Log in with User ID and Password
+</ol>
+
+<h4>Step 3:  Working with Data in R</h4>
+<b>Example Oracle, Part 1:</b>  SQL Query to Import data set into R
+
+<p>In the R Console:</p>
+<ol>
+  <li>Query the data from the database table
+<!--begin.rcode eval=FALSE
+data<-sqlQuery(con, "select * from TABLE_NAME where COLUMN_NAME = 'Awesome';")
+end.rcode-->
+</ol>
+<p>Note that within the queries, you must always use single quotes.</p>
+
+<b>Example Oracle, Part 2:</b>  SQL Query to create a table in your database
+
+<p>In the R Console:</p>
+<ol>
+<li>Select/create your data frame (table) that you want to upload as a table in the database.  For help on data frames and creating tables in your database:
+<!--begin.rcode eval=FALSE
+help(data.frame)
+help(sqlSave)
+end.rcode-->
+<li>In this example, suppose the data frame is named "budget".
+<!--begin.rcode eval=FALSE
+sqlSave(con, budget, tablename="BUDGET_2010", colnames=FALSE, rownames=FALSE)
+end.rcode-->
+</ol>
+<p>Now you have created a table in your database entitled "BUDGET_2010". Set the column/row names to TRUE or FALSE depending on your data frame.</p>
+
+<b>Example Excel:</b> Import an Excel file worksheet into R using ODBC
+
+<p>In the R Console:</p>
+
+<ol>
+<li>Type:
+<!--begin.rcode eval=FALSE
+conexcel<-odbcConnectExcel2007(choose.files())
+end.rcode-->
+<i>(opens up Select File window)</i>
+<li>Click on desired Excel File and press enter
+<li>Now you can fetch data from a specific worksheet within the file, such as the tab "2010 Budget":
+<!--begin.rcode eval=FALSE
+budget<-sqlFetch(conexcel, "2010 Budget")
+end.rcode-->
+<li>Additionally, suppose you want to select only rows 1 - 71 and columns 1-5 from budget
+<!--begin.rcode eval=FALSE
+budget<-budget[1:71,1:5]
+end.rcode-->
+<li>Finally, you can close the ODBC connection if desired. Alternatively, it will close when you exit R.
+<!--begin.rcode eval=FALSE
+odbcClose(conexcel)
+end.rcode-->
+</ol>
+
+<b>Example Excel, Alternate:</b> Read Excel spreadsheet into R
+<ol>
+<li>Create a directory in your hard drive that does not have spaces in the file path, such as<br/>
+"C:\mydata"
+<li>Save Excel spreadsheet in ".csv" or other appropriate format in your newly created directory
+<li>For help on reading files into R, type in the R Console
+<!--begin.rcode eval=FALSE
+help(read.table) 
+help(read.csv)
+end.rcode-->
+<li>Read file into R, replacing back slashes with forward slashes. Additionally, you can specify rows (1-65) and columns (2-7).
+<!--begin.rcode eval=FALSE
+budget2<-data.frame(read.csv("C:/mydata/2010_Budget_Example.csv", header=T, dec=".", sep=",")[1:65,2:7])
+end.rcode -->
+
+
