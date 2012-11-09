@@ -6,6 +6,7 @@ comments: true
 ---
 ```{r}
 render_jekyll()
+opts_knit$set(base.url="../../../../", base.dir="../")
 ```
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring web pages (click the **MD** toolbar button for help on Markdown).
@@ -18,7 +19,7 @@ summary(cars)
 
 You can also embed plots, for example:
 
-```{r fig.width=7, fig.height=6, fig.path="../images/blog/"}
+```{r fig.width=7, fig.height=6, fig.path="images/blog/"}
 plot(cars)
 ```
 
