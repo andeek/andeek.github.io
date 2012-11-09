@@ -4,7 +4,7 @@ title: "Test!"
 root: "../../../../"
 comments: true
 ---
-```{r}
+```{r setup, echo=FALSE}
 render_jekyll()
 opts_knit$set(base.url="../../../../", base.dir="../")
 ```

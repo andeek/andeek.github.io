@@ -4,6 +4,11 @@ title: "Upgrading R - Have no fear!"
 root: "../../../../"
 comments: true
 ---
+```{r setup, echo=FALSE}
+render_jekyll()
+opts_knit$set(base.url="../../../../", base.dir="../")
+```
+
 Hello faithful readeRs. Today I want to talk about something that may be worrying you: upgrading your version of R. Now readeRs, I understand your fear. I don't want to lose all my installed libraries either! That would require me remembering all their names and downloading them anew. Not ideal.
 
 I have been working hard to solve this problem, but the solution was simple: backup a list of installed libraries!
