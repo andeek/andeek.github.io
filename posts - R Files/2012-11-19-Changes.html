@@ -200,10 +200,10 @@ url: /blog.html
 
 <p>Then, in my template file where my menu items used to be, I added this:</p>
 
-<p>{% highlight r %}</p>
+<div>
 
+{% highlight r %}
 <!-- Menu Tabs -->
-
 <ul>
     {% for link in site.navigation %}
       {% assign current = nil %}
@@ -215,8 +215,9 @@ url: /blog.html
       </li>
     {% endfor %}
 </ul>       
+{% endhighlight %}
 
-<p>{% endhighlight %}</p>
+</div>
 
 <p>You&#39;ll notice that instead of having static menu tabs, I now loop through the links in the site navigation in my _config file and add class=current if necessary. Also note the use of Liquid syntax that Jekyll is compatible with. And finally, in the header of my posts, I add:</p>
 
