@@ -216,7 +216,9 @@ render_jekyll()
 
 <p>You&#39;ll notice that instead of having static menu tabs, I now loop through the links in the site navigation in my _config file and add class=current if necessary. Also note the use of Liquid syntax that Jekyll is compatible with. And finally, in the header of my posts, I add:</p>
 
-<pre><code>post: Blog
+<pre><code>{% raw %}
+post: Blog
+{% endraw %}
 </code></pre>
 
 <p>This allows for the posts to keep the Blog menu item highlighted.</p>
