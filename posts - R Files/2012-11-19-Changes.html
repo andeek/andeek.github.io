@@ -179,30 +179,25 @@ render_jekyll()
 
 <p>My other main problem comes from trying to have my whole site utilize the Jekyll templates. I wanted to run each page off the same template so that I didn&#39;t have to change every page when I had to edit one thing. This seems to work with the Jekyll templating idea, except for menu item highlighting. You see, when you go to a page on my site, that menu item is highlighted (see above). Now, with every site running from the same template, how to make that highlighted dynamic? There are a couple steps to this process. The first is creating a navigation in your _config.yml file (from the Jekyll installation). For me, this amounts to adding these lines:</p>
 
-<p>{% highlight r %}
-  navigation:</p>
-
-<ul>
-<li>text: Home
-url: /index.html</li>
-<li>text: CV
-url: /cv.html</li>
-<li>text: Teaching
-url: /teaching.html</li>
-<li>text: Research
-url: /research.html</li>
-<li>text: Coursework
-url: /coursework.html</li>
-<li>text: Blog
-url: /blog.html
-{% endhighlight %}</li>
-</ul>
+<pre><code>  navigation:
+  - text: Home
+    url: /index.html
+  - text: CV
+    url: /cv.html
+  - text: Teaching
+    url: /teaching.html
+  - text: Research
+    url: /research.html
+  - text: Coursework
+    url: /coursework.html
+  - text: Blog
+    url: /blog.html
+</code></pre>
 
 <p>Then, in my template file where my menu items used to be, I added this:</p>
 
 <div>
-
-{% highlight r %}
+&ldquo;
 <!-- Menu Tabs -->
 <ul>
     {% for link in site.navigation %}
@@ -215,15 +210,13 @@ url: /blog.html
       </li>
     {% endfor %}
 </ul>       
-{% endhighlight %}
-
+&rdquo;
 </div>
 
 <p>You&#39;ll notice that instead of having static menu tabs, I now loop through the links in the site navigation in my _config file and add class=current if necessary. Also note the use of Liquid syntax that Jekyll is compatible with. And finally, in the header of my posts, I add:</p>
 
-<p>{% highlight r %}
-post:Blog
-{% endhighlight %}</p>
+<pre><code>post: Blog
+</code></pre>
 
 <p>This allows for the posts to keep the Blog menu item highlighted.</p>
 

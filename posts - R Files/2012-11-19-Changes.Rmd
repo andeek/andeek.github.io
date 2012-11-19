@@ -38,7 +38,7 @@ Simple as that, my problem was solved!
 My other main problem comes from trying to have my whole site utilize the Jekyll templates. I wanted to run each page off the same template so that I didn't have to change every page when I had to edit one thing. This seems to work with the Jekyll templating idea, except for menu item highlighting. You see, when you go to a page on my site, that menu item is highlighted (see above). Now, with every site running from the same template, how to make that highlighted dynamic? There are a couple steps to this process. The first is creating a navigation in your \_config.yml file (from the Jekyll installation). For me, this amounts to adding these lines:
 
 
-```{r nav, eval=FALSE}
+```
   navigation:
   - text: Home
     url: /index.html
@@ -58,7 +58,7 @@ My other main problem comes from trying to have my whole site utilize the Jekyll
 Then, in my template file where my menu items used to be, I added this:
 
 <div>
-```{r menu, eval=FALSE}
+```
 <!-- Menu Tabs -->
 <ul>
 	{% for link in site.navigation %}
@@ -76,7 +76,7 @@ Then, in my template file where my menu items used to be, I added this:
 
 You'll notice that instead of having static menu tabs, I now loop through the links in the site navigation in my \_config file and add class=current if necessary. Also note the use of Liquid syntax that Jekyll is compatible with. And finally, in the header of my posts, I add:
 
-```{r blog, eval=FALSE}
+```
 post: Blog
 ```
 This allows for the posts to keep the Blog menu item highlighted.
