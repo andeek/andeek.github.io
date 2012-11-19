@@ -37,21 +37,24 @@ Simple as that, my problem was solved!
 
 My other main problem comes from trying to have my whole site utilize the Jekyll templates. I wanted to run each page off the same template so that I didn't have to change every page when I had to edit one thing. This seems to work with the Jekyll templating idea, except for menu item highlighting. You see, when you go to a page on my site, that menu item is highlighted (see above). Now, with every site running from the same template, how to make that highlighted dynamic? There are a couple steps to this process. The first is creating a navigation in your \_config.yml file (from the Jekyll installation). For me, this amounts to adding these lines:
 
+<div>
 ```
-navigation:
-- text: Home
-  url: /index.html
-- text: CV
-  url: /cv.html
-- text: Teaching
-  url: /teaching.html
-- text: Research
-  url: /research.html
-- text: Coursework
-  url: /coursework.html
-- text: Blog
-  url: /blog.html
+  navigation:
+  - text: Home
+    url: /index.html
+  - text: CV
+    url: /cv.html
+  - text: Teaching
+    url: /teaching.html
+  - text: Research
+    url: /research.html
+  - text: Coursework
+    url: /coursework.html
+  - text: Blog
+    url: /blog.html
 ```
+<\div>
+
 Then, in my template file where my menu items used to be, I added this:
 
 ```
