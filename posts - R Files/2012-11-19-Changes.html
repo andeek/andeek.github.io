@@ -179,7 +179,8 @@ render_jekyll()
 
 <p>My other main problem comes from trying to have my whole site utilize the Jekyll templates. I wanted to run each page off the same template so that I didn&#39;t have to change every page when I had to edit one thing. This seems to work with the Jekyll templating idea, except for menu item highlighting. You see, when you go to a page on my site, that menu item is highlighted (see above). Now, with every site running from the same template, how to make that highlighted dynamic? There are a couple steps to this process. The first is creating a navigation in your _config.yml file (from the Jekyll installation). For me, this amounts to adding these lines:</p>
 
-<pre><code>  navigation:
+<pre><code>.|
+  navigation:
   - text: Home
     url: /index.html
   - text: CV
@@ -192,26 +193,26 @@ render_jekyll()
     url: /coursework.html
   - text: Blog
     url: /blog.html
+    .|
 </code></pre>
 
 <p>Then, in my template file where my menu items used to be, I added this:</p>
 
-<div>
-&ldquo;
-<!-- Menu Tabs -->
-<ul>
+<pre><code>|.
+&lt;!-- Menu Tabs --&gt;
+&lt;ul&gt;
     {% for link in site.navigation %}
       {% assign current = nil %}
       {% if page.url == link.url or page.post == link.text %}
-          {% assign current = &lsquo;current&rsquo; %}
+          {% assign current = &#39;current&#39; %}
       {% endif %}
-      <li class="{% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
-        <a class="{{ current }}" href="{{ link.url }}">{{ link.text }}</a>
-      </li>
+      &lt;li class=&quot;{% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}&quot;&gt;
+        &lt;a class=&quot;{{ current }}&quot; href=&quot;{{ link.url }}&quot;&gt;{{ link.text }}&lt;/a&gt;
+      &lt;/li&gt;
     {% endfor %}
-</ul>       
-&rdquo;
-</div>
+&lt;/ul&gt;   
+.|
+</code></pre>
 
 <p>You&#39;ll notice that instead of having static menu tabs, I now loop through the links in the site navigation in my _config file and add class=current if necessary. Also note the use of Liquid syntax that Jekyll is compatible with. And finally, in the header of my posts, I add:</p>
 
