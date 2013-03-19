@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title>comments: true</title>
+<title>What is Jekyll?</title>
 
 <style type="text/css">
 body, td {
@@ -57,7 +57,7 @@ pre code {
    display: block; padding: 0.5em;
 }
 
-code.r {
+code.r, code.cpp {
    background-color: #F8F8F8;
 }
 
@@ -141,14 +141,6 @@ hr {
 </head>
 
 <body>
-<hr/>
-
-<p>layout: post_ak
-title: &ldquo;Ch-ch-ch-changes!&rdquo;
-root: &ldquo;../../../../&rdquo;</p>
-
-<h2>comments: true</h2>
-
 <p>I have had some pretty big changes going on in the last few months: new career, new hometown, but most importantly, new website! Over the last month I&#39;ve taken my php website and switched it over to a <a href="http://pages.github.com">Github Page</a> powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> written in HTML and Markdown. I made the big switch because I wanted a platform that would be easier for me to write blog posts. Although other blogging platforms have a lot of UI tools that are created to make blogging easy, I found myself more often than not fighting with the tools. All that changed when I was shown <a href="http://yihui.name/knitr">knitr</a>. Needless to say, I am a convert. I plan on writing an introduction post to knitr in the next few months, but in the meantime back to Jekyll and Markdown.</p>
 
 <h4>What is Jekyll?</h4>
@@ -180,7 +172,7 @@ render_jekyll()
 <p>My other main problem comes from trying to have my whole site utilize the Jekyll templates. I wanted to run each page off the same template so that I didn&#39;t have to change every page when I had to edit one thing. This seems to work with the Jekyll templating idea, except for menu item highlighting. You see, when you go to a page on my site, that menu item is highlighted (see above). Now, with every site running from the same template, how to make that highlighted dynamic? There are a couple steps to this process. The first is creating a navigation in your _config.yml file (from the Jekyll installation). For me, this amounts to adding these lines:</p>
 
 <p>{% highlight r %}
-{% literal %}
+{% raw %}
   navigation:</p>
 
 <ul>
@@ -196,7 +188,7 @@ url: /research.html</li>
 url: /coursework.html</li>
 <li>text: Blog
 url: /blog.html
-{% endliteral %}
+{% endraw %}
 {% endhighlight %}</li>
 </ul>
 

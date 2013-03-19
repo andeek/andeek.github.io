@@ -39,7 +39,7 @@ My other main problem comes from trying to have my whole site utilize the Jekyll
 
 
 ```{r nav, eval=FALSE}
-{% literal %}
+{% raw %}
   navigation:
   - text: Home
     url: /index.html
@@ -53,7 +53,7 @@ My other main problem comes from trying to have my whole site utilize the Jekyll
     url: /coursework.html
   - text: Blog
     url: /blog.html
-{% endliteral %}
+{% endraw %}
 ```
 
 
