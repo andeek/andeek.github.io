@@ -187,7 +187,7 @@ hljs.initHighlightingOnLoad();
 <p>###What is reshaping data?
 When we get data from almost any source it is rare to find it in a usable shape. Usually, data will be stored in a form that is either easy to collect, or easy to store. Most of the time, neither of these are very useful to us. Typically we will want to go from a &ldquo;wide&rdquo; format to a &ldquo;tall&rdquo; format (see diagram below), especially if we want to use <a href="http://ggplot2.org">ggplot2</a> to make interesting plots. </p>
 
-<p><img src="%7B%7B%20page.root%20%7D%7Dimages/blog/01142014widevstall.png" alt="Wide versus tall"/></p>
+<p><img src="{{ page.root }}images/blog/01142014widevstall.png" alt="Wide versus tall" style="width: 500px;"/></p>
 
 <p>In a wide format, there may be multiple metrics associated with one identity, one row for each identity. In a tall format, there will be one row for each identity-metric combination and only one column for all the the metric values. The transformation between these formats is what is called reshaping data in the paper. Tall data is called &ldquo;molten&rdquo; in this paper and gives insight to the naming of functions in the reshape package.</p>
 

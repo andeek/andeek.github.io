@@ -14,7 +14,7 @@ The paper we are reading this week is "Reshaping Data with the reshape Package" 
 ###What is reshaping data?
 When we get data from almost any source it is rare to find it in a usable shape. Usually, data will be stored in a form that is either easy to collect, or easy to store. Most of the time, neither of these are very useful to us. Typically we will want to go from a "wide" format to a "tall" format (see diagram below), especially if we want to use [ggplot2](http://ggplot2.org) to make interesting plots. 
 
-![Wide versus tall]({{ page.root }}images/blog/01142014widevstall.png)
+<img src="{{ page.root }}images/blog/01142014widevstall.png" alt="Wide versus tall" style="width: 500px;"/>
 
 In a wide format, there may be multiple metrics associated with one identity, one row for each identity. In a tall format, there will be one row for each identity-metric combination and only one column for all the the metric values. The transformation between these formats is what is called reshaping data in the paper. Tall data is called "molten" in this paper and gives insight to the naming of functions in the reshape package.
 
