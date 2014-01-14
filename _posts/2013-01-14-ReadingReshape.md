@@ -9,7 +9,7 @@ As part of the course [Stat 585X](http://dicook.github.io/stat585/) I am taking 
 
 ****
 
-The paper we are reading this week is "Reshaping Data with the reshape Package" by Hadley Wickham, published in the Journal of Statistical Software, November 2007, Volume 21, Issue 12 (http://www.jstatsoft.org/v21/i12/paper). As you may have guessed, the paper gives a good overview of what reshaping data is, why we would want to do it, and finally how we can reshape data easily.
+The paper we are reading this week is ["Reshaping Data with the reshape Package"](http://www.jstatsoft.org/v21/i12/paper) by Hadley Wickham, published in the Journal of Statistical Software, November 2007, Volume 21, Issue 12. As you may have guessed, the paper gives a good overview of what reshaping data is, why we would want to do it, and finally how we can reshape data easily.
 
 ###What is reshaping data?
 When we get data from almost any source it is rare to find it in a usable shape. Usually, data will be stored in a form that is either easy to collect, or easy to store. Most of the time, neither of these are very useful to us. Typically we will want to go from a "wide" format to a "tall" format (see diagram below), especially if we want to use [ggplot2](http://ggplot2.org) to make interesting plots. 
