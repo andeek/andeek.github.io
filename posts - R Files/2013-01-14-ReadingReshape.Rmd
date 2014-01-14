@@ -23,7 +23,7 @@ Because What Would Hadley Do (WWHD)? But really, to quote the man himself, "Data
 measurements) and typically requires investigation at multiple levels." We should reshape because it makes life a little easier and who doesn't need that?
 
 ###How can we reshape?
-By using the reshape package, this paper highlights two useful functions: *melt* and *cast*. For a quick example of how to reshape, the paper uses the *smiths* dataset available in reshape. Let's look at a quick example.
+By using the reshape package, this paper highlights two useful functions: *melt* and *cast*. For a quick example of how to reshape, the paper uses the *smiths* dataset available in reshape. Let's take a look.
 
 **Wide to Tall**
 ```{r, echo=TRUE}
@@ -47,4 +47,4 @@ There are many options when it comes to specifying id variables and formulas in 
 ###Additional Comments
 In his paper, Hadley walks through in detail a lot of other situations including **missing data**, **aggregation**, **higher dimensions**, **lists**, and other convenience functions. 
 
-While all of these ideas and options are really useful, I'm going to let the expert to the talking and leave you with my thoughts on reshaping. It has changed my life! Not really, but kind of. I find myself using *cast* and *melt* more frequently than I'd care to count. Use it, and be amazed at how easy difficult reshaping in Excel can turn into one extra line of reproducible code. 
+While all of these ideas and options are really useful, I'm going to let the expert do the talking and leave you with my thoughts on reshaping. It has changed my life! Not really, but kind of. I find myself using *cast* and *melt* more frequently than I'd care to count. Use it, and be amazed at how easy difficult reshaping in Excel can turn into one extra line of reproducible code. 
