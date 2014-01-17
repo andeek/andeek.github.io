@@ -34,6 +34,3 @@ function particles(config) {
     }
   }
 }
-
-var myChart = particles({width: 100, height: 80});
-myChart();
