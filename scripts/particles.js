@@ -1,4 +1,4 @@
-function chartParticle(config) {
+function particles(config) {
   return function() {    
     var width = Math.min(config.width, innerWidth),
     height = Math.max(config.height, innerHeight);
@@ -35,5 +35,5 @@ function chartParticle(config) {
   }
 }
 
-var myChart = chartParticle({width: 100, height: 80});
+var myChart = particles({width: 100, height: 80});
 myChart();
