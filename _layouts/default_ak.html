@@ -12,6 +12,12 @@
 		<link rel="stylesheet" href="{{ page.root }}css/highlight.css" type="text/css" />
 		<link rel="icon" type="image/jpg" href="{{ page.root }}images/me.jpg" />
 		
+    {% if page.extra <> nil  %}
+    <link rel="stylesheet" href="{{ page.root }}css/{{ page.extra }}.css" type="text/css" />
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="{{ page.root }}scripts/{{ page.extra }}.js"></script>
+    {% endif %}
+    
 		<title>Andee Kaplan - Iowa State University</title>
 		
 		<script src="https://raw.github.com/mathjax/MathJax/master/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>

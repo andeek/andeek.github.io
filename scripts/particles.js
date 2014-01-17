@@ -1,11 +1,11 @@
 function chartParticle(config) {
   return function() {    
-    var width = Math.max(config.width, innerWidth),
+    var width = Math.min(config.width, innerWidth),
     height = Math.max(config.height, innerHeight);
     
     var i = 0;
     
-    var svg = d3.select("body").append("svg")
+    var svg = d3.select("#content").append("svg")
     .attr("width", width)
     .attr("height", height);
     
@@ -34,3 +34,6 @@ function chartParticle(config) {
     }
   }
 }
+
+var myChart = chartParticle({width: 100, height: 80});
+myChart();
