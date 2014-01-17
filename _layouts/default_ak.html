@@ -17,15 +17,6 @@
     {% endif %}
     
 		<title>Andee Kaplan - Iowa State University</title>
-		
-    {% if page.extra <> nil  %}
-      <script src="http://d3js.org/d3.v3.min.js"></script>
-      <script src="{{ page.root }}scripts/{{ page.extra }}.js"></script>
-      <script type="text/javascript">
-        var myChart = {{ page.extra }}({width: 190, height: 80});
-        myChart();  
-      </script>
-    {% endif %}
     
 		<script src="https://raw.github.com/mathjax/MathJax/master/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 		
@@ -120,4 +111,12 @@
 		</div></div>
 
 	</body>
+  {% if page.extra <> nil  %}
+      <script src="http://d3js.org/d3.v3.min.js"></script>
+      <script src="{{ page.root }}scripts/{{ page.extra }}.js"></script>
+      <script type="text/javascript">
+        var myChart = {{ page.extra }}({width: 190, height: 80});
+        myChart();  
+      </script>
+    {% endif %}
 </html>
