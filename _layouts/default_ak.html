@@ -17,7 +17,7 @@
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="{{ page.root }}scripts/{{ page.extra }}.js"></script>
     <script>
-      var myChart = particles({width: 720, height: 80});
+      var myChart = {{ page.extra }}({width: 720, height: 80});
       myChart();  
     </script>
     {% endif %}
