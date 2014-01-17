@@ -14,16 +14,19 @@
 		
     {% if page.extra <> nil  %}
     <link rel="stylesheet" href="{{ page.root }}css/{{ page.extra }}.css" type="text/css" />
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="{{ page.root }}scripts/{{ page.extra }}.js"></script>
-    <script>
-      var myChart = {{ page.extra }}({width: 720, height: 80});
-      myChart();  
-    </script>
     {% endif %}
     
 		<title>Andee Kaplan - Iowa State University</title>
 		
+    {% if page.extra <> nil  %}
+      <script src="http://d3js.org/d3.v3.min.js"></script>
+      <script src="{{ page.root }}scripts/{{ page.extra }}.js"></script>
+      <script type="text/javascript">
+        var myChart = {{ page.extra }}({width: 100, height: 80});
+        myChart();  
+      </script>
+    {% endif %}
+    
 		<script src="https://raw.github.com/mathjax/MathJax/master/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 		
 		<script type="text/javascript">
