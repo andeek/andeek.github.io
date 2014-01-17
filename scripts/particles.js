@@ -5,7 +5,7 @@ function particles(config) {
     
     var i = 0;
     
-    var svg = d3.select("#content").append("svg")
+    var svg = d3.select("#content").insert("svg")
     .attr("width", width)
     .attr("height", height);
     
