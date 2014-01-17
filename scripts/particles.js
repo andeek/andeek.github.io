@@ -1,11 +1,11 @@
 function particles(config) {
   return function() {    
     var width = Math.min(config.width, innerWidth),
-    height = Math.max(config.height, innerHeight);
+    height = Math.min(config.height, innerHeight);
     
     var i = 0;
     
-    var svg = d3.select("#content").insert("svg", "#main")
+    var svg = d3.select("#content").insert("svg")
     .attr("width", width)
     .attr("height", height);
     
