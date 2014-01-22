@@ -2,6 +2,7 @@ pygments: true
 markdown: rdiscount
 permalink: /:year/:month/:day/:title
 rdiscount extensions: [smart]
+baseurl: /alt
 navigation:
 - name: me
   href: '#me'
