@@ -41,7 +41,7 @@ with_tz(Sys.time())
 
 
 {% highlight text %}
-## [1] "2014-01-26 18:47:28 CST"
+## [1] "2014-01-26 18:55:32 CST"
 {% endhighlight %}
 
 
@@ -53,7 +53,7 @@ with_tz(Sys.time(), "Pacific/Honolulu")
 
 
 {% highlight text %}
-## [1] "2014-01-26 14:47:28 HST"
+## [1] "2014-01-26 14:55:32 HST"
 {% endhighlight %}
 
 
@@ -87,7 +87,7 @@ ggplot(flu.copy) + geom_line(aes(x = Date, y = value, group = variable)) + facet
     nrow = 11)
 {% endhighlight %}
 
-![center](../../../../../images/blog/_2014-01-26-lubridate_/unnamed-chunk-4.png) 
+![center](../../../../../images/blog/2014-01-26-lubridate/unnamed-chunk-4.png) 
 
 Without *lubridate*, grappling with the arithmetic of going back 2 weeks would have been painful. I like to avoid painful time arithmetic, so I'm happy to know my way around *lubridate*.
 
