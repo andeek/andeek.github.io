@@ -3,11 +3,11 @@ layout: default_ak
 post: Blog
 ---
 <div id="clickme">
-  <span><i class="fa fa-caret-square-o-down"></i> Toggle Code Viewing</span>
+  <span><i class="fa fa-code"></i> Toggle Code Viewing: <span style="color: #16A611">ON</span><span style="color: #FC0000; display:none">OFF</span></span>
 </div>
 {{ content }}
 <script>
-$( "#clickme" ).click(function() {
+$( "#clickme" ).each().click(function() {
   $( "code" ).toggle( "slow", function() {
     // Animation complete.
   });
