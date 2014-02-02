@@ -7,7 +7,9 @@
 /*********************************************************************************/
 #clickme
 {
-  outline:#4A494A
+  outline-color: #4A494A;
+  outline-style: solid;
+  outline-width: thin;
 }
   .fa
 	{

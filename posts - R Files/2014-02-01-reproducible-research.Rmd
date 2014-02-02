@@ -23,7 +23,7 @@ The authors sell the idea of a compendium in terms of flexibility for the reader
   <span>
     <span class="fa-stack fa-lg">
       <i class="fa fa-square fa-stack-2x"></i>
-      <i class="fa fa-code fa-stack-1x fa-inverse"></i>
+      <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
     </span>  
     Click here
   </span>
@@ -31,6 +31,9 @@ The authors sell the idea of a compendium in terms of flexibility for the reader
 <script>
 $( "#clickme2" ).click(function() {
   $( "code" ).toggle( "slow", function() {
+    // Animation complete.
+  });
+  $( ".status" ).toggle( "slow", function() {
     // Animation complete.
   });
 });
