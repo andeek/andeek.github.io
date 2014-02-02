@@ -2,6 +2,16 @@
 layout: default_ak
 post: Blog
 ---
+<div id="clickme">
+  <span><i class="fa fa-caret-square-o-down"></i> Click here</span>
+</div>
+<script>
+$( "#clickme" ).click(function() {
+  $( "code" ).toggle( "slow", function() {
+    // Animation complete.
+  });
+});
+</script>
 {{ content }}
 <br /><br /><br />
 {% if page.comments %} 
