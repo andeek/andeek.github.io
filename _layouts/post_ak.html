@@ -3,12 +3,23 @@ layout: default_ak
 post: Blog
 ---
 <div id="clickme">
-  <span><i class="fa fa-code"></i> Toggle Code Viewing: <span style="color: #16A611">ON</span><span style="color: #FC0000; display:none">OFF</span></span>
+  <span>
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-square fa-stack-2x"></i>
+      <i class="fa fa-code fa-stack-1x fa-inverse"></i>
+    </span> 
+    Toggle Code Viewing: 
+    <span class="status" style="color: #16A611">ON</span>
+    <span class="status" style="color: #FC0000; display:none">OFF</span>
+  </span>
 </div>
 {{ content }}
 <script>
-$( "#clickme" ).each().click(function() {
+$( "#clickme" ).click(function() {
   $( "code" ).toggle( "slow", function() {
+    // Animation complete.
+  });
+  $( ".status" ).toggle( "slow", function() {
     // Animation complete.
   });
 });
