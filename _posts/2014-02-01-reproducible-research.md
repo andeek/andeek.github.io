@@ -22,13 +22,6 @@ The authors sell the idea of a compendium in terms of flexibility for the reader
 <div id="clickme">
   <span><i class="fa fa-caret-square-o-down"></i> Click here</span>
 </div>
-<script>
-$( "#clickme" ).click(function() {
-  $( "code" ).toggle( "slow", function() {
-    // Animation complete.
-  });
-});
-</script>
 
 {% highlight r %}
 # Generate data
