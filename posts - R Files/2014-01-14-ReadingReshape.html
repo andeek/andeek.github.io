@@ -3,6 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
 
 <title></title>
 
@@ -203,21 +204,13 @@ By using the reshape package, this paper highlights two useful functions: <em>me
 <pre><code class="r">library(reshape)
 </code></pre>
 
-<pre><code>## Loading required package: plyr
-## 
-## Attaching package: &#39;reshape&#39;
-## 
-## The following objects are masked from &#39;package:plyr&#39;:
-## 
-##     rename, round_any
+<pre><code>## Error: there is no package called &#39;reshape&#39;
 </code></pre>
 
 <pre><code class="r">print(smiths)
 </code></pre>
 
-<pre><code>##      subject time age weight height
-## 1 John Smith    1  33     90   1.87
-## 2 Mary Smith    1  NA     NA   1.54
+<pre><code>## Error: object &#39;smiths&#39; not found
 </code></pre>
 
 <p>We can see here, there is a combination identity of <em>subject</em> and <em>time</em> with three metrics: <em>age</em>, <em>weight</em>, and <em>height</em>. By using reshape, we can easily transform this data into a molten or tall format.</p>
@@ -225,13 +218,7 @@ By using the reshape package, this paper highlights two useful functions: <em>me
 <pre><code class="r">(smiths.m &lt;- melt(smiths, id.vars = c(&quot;subject&quot;, &quot;time&quot;)))
 </code></pre>
 
-<pre><code>##      subject time variable value
-## 1 John Smith    1      age 33.00
-## 2 Mary Smith    1      age    NA
-## 3 John Smith    1   weight 90.00
-## 4 Mary Smith    1   weight    NA
-## 5 John Smith    1   height  1.87
-## 6 Mary Smith    1   height  1.54
+<pre><code>## Error: could not find function &quot;melt&quot;
 </code></pre>
 
 <p>Now we have a tall dataset with one column for the name of metrics and one for the values of these metrics. </p>
@@ -242,9 +229,7 @@ Having created our molten data frame, we may want to be able to get back the wid
 <pre><code class="r">cast(smiths.m, formula = subject + time ~ variable)
 </code></pre>
 
-<pre><code>##      subject time age weight height
-## 1 John Smith    1  33     90   1.87
-## 2 Mary Smith    1  NA     NA   1.54
+<pre><code>## Error: could not find function &quot;cast&quot;
 </code></pre>
 
 <p>There are many options when it comes to specifying id variables and formulas in the <em>melt</em> and <em>cast</em> functions, but I will refer you to the paper for more details.</p>

@@ -1,0 +1,33 @@
+---
+layout: post_ak
+title: "Reading: Introduction to dplyr"
+root: "../../../../"
+comments: true
+---
+As part of the course [Stat 585X](http://dicook.github.io/stat585/) I am taking this semester, I will be posting a series of responses to assigned course readings. Mostly these will be my rambling thoughts as I skim papers.
+
+****
+This week we are reading documentation on the [dplyr](http://cran.r-project.org/web/packages/dplyr/vignettes/introduction.html) [package](http://cran.r-project.org/web/packages/dplyr/vignettes/databases.html) by Hadley Wickham from January 2014. These two vignettes lay out the introduction to the new package *dplyr* and how to use *dplyr* on data stored in a database.
+
+###Divide and Conquer
+*dplyr* introduces five basic "verbs" that we can use to work with a data frame:
+
+*`filter()` - allows you to filter rows by a variable, much like `base::subset()`, 
+*`arrange()` - allows you to order rows by a variable either ascending or descending, 
+*`select()` - allows you to select columns of a variable, and supports the `:` operator for getting columns next to each other, 
+*`mutate()` - adds new columns as a function of the existing,
+*`summarise()` - collapses `n` rows to `1` through use of an aggregation function.
+
+Using these five verbs and a grouping function, aptly named `group_by()`, we can quickly and easily do any manipulations of a data frame that we may need. 
+
+I am struck by the quickly closing gap between my `R` knowledge and my `SQL` knowledge. *dplyr* strikes me as a `R`-interpreted `SQL` query, which makes a whole lot of sense. When we want to pull data, it seems like a no-brainer to utilize ideas that have been working since the 1970's. Kudos to Hadley for bridging this divide.
+
+###Chaining
+The other novel thing introduced in *dplyr* is an operator to chain verbs. This operator, ` %.%`, allows you to apply multiple verbs to a dataset in a certain order through the syntax `x %.% f(y) turns into f(x, y)`. The chaining of verbs allows us to construct "sentences", if you will, that can act on a data frame to produce the desired results.
+
+##Databases
+Anyone who has ever had to deal with a truly large dataset knows that the in-memory storage of data in `R` can be quite a pain. the *dplyr* package supports external storage of data in an open source database (sqlite, mysql and postgresql), or Google's bigquery. 
+
+What Hadley calls **lazy**, I call a stroke of genius. *dplyr* won't pull the entire dataset until you tell it to do so, through a `collect()` command. This way you can tinker with your query, seeing the top 10 rows of your results until you're happy. At this point you can say `collect()` and the full query will be run, pulling back the entire dataset. This sort of code-and-check method that is used to often saves us the hassle of running a query for half an hour, only to find out we forgot a column. Yay!
+
+<img src="{{ page.root }}images/blog/2014-02-16-dplyr/yay_cat2.jpg" alt="Yay" style="width: 500px;"/>
