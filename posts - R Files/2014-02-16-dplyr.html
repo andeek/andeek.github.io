@@ -151,23 +151,25 @@ hr {
 <p>###Divide and Conquer
 <em>dplyr</em> introduces five basic &ldquo;verbs&rdquo; that we can use to work with a data frame:</p>
 
-<p>*<code>filter()</code> - allows you to filter rows by a variable, much like <code>base::subset()</code>, 
-*<code>arrange()</code> - allows you to order rows by a variable either ascending or descending, 
-*<code>select()</code> - allows you to select columns of a variable, and supports the <code>:</code> operator for getting columns next to each other, 
-*<code>mutate()</code> - adds new columns as a function of the existing,
-*<code>summarise()</code> - collapses <code>n</code> rows to <code>1</code> through use of an aggregation function.</p>
+<ul>
+<li><em>filter()</em> - allows you to filter rows by a variable, much like <em>base::subset()</em>, </li>
+<li><em>arrange()</em> - allows you to order rows by a variable either ascending or descending, </li>
+<li><em>select()</em> - allows you to select columns of a variable, and supports the <code>:</code> operator for getting columns next to each other, </li>
+<li><em>mutate()</em> - adds new columns as a function of the existing,</li>
+<li><em>summarise()</em> - collapses n rows to 1 through use of an aggregation function.</li>
+</ul>
 
-<p>Using these five verbs and a grouping function, aptly named <code>group_by()</code>, we can quickly and easily do any manipulations of a data frame that we may need. </p>
+<p>Using these five verbs and a grouping function, aptly named <em>group_by()</em>, we can quickly and easily do any manipulations of a data frame that we may need. </p>
 
-<p>I am struck by the quickly closing gap between my <code>R</code> knowledge and my <code>SQL</code> knowledge. <em>dplyr</em> strikes me as a <code>R</code>-interpreted <code>SQL</code> query, which makes a whole lot of sense. When we want to pull data, it seems like a no-brainer to utilize ideas that have been working since the 1970&#39;s. Kudos to Hadley for bridging this divide.</p>
+<p>I am struck by the quickly closing gap between my R knowledge and my SQL knowledge. <em>dplyr</em> strikes me as an R-interpreted SQL query, which makes a whole lot of sense. When we want to pull data, it seems like a no-brainer to utilize ideas that have been working since the 1970&#39;s. Kudos to Hadley for bridging this divide.</p>
 
 <p>###Chaining
-The other novel thing introduced in <em>dplyr</em> is an operator to chain verbs. This operator, <code>%.%</code>, allows you to apply multiple verbs to a dataset in a certain order through the syntax <code>x %.% f(y) turns into f(x, y)</code>. The chaining of verbs allows us to construct &ldquo;sentences&rdquo;, if you will, that can act on a data frame to produce the desired results.</p>
+The other novel thing introduced in <em>dplyr</em> is an operator to chain verbs. This operator, %.%, allows you to apply multiple verbs to a dataset in a certain order through the syntax x %.% f(y) turns into f(x, y). The chaining of verbs allows us to construct &ldquo;sentences&rdquo;, if you will, that can act on a data frame to produce the desired results.</p>
 
 <p>##Databases
-Anyone who has ever had to deal with a truly large dataset knows that the in-memory storage of data in <code>R</code> can be quite a pain. the <em>dplyr</em> package supports external storage of data in an open source database (sqlite, mysql and postgresql), or Google&#39;s bigquery. </p>
+Anyone who has ever had to deal with a truly large dataset knows that the in-memory storage of data in R can be quite a pain. the <em>dplyr</em> package supports external storage of data in an open source database (sqlite, mysql and postgresql), or Google&#39;s bigquery. </p>
 
-<p>What Hadley calls <strong>lazy</strong>, I call a stroke of genius. <em>dplyr</em> won&#39;t pull the entire dataset until you tell it to do so, through a <code>collect()</code> command. This way you can tinker with your query, seeing the top 10 rows of your results until you&#39;re happy. At this point you can say <code>collect()</code> and the full query will be run, pulling back the entire dataset. This sort of code-and-check method that is used to often saves us the hassle of running a query for half an hour, only to find out we forgot a column. Yay!</p>
+<p>What Hadley calls <strong>lazy</strong>, I call a stroke of genius. <em>dplyr</em> won&#39;t pull the entire dataset until you tell it to do so, through a collect() command. This way you can tinker with your query, seeing the top 10 rows of your results until you&#39;re happy. At this point you can say collect() and the full query will be run, pulling back the entire dataset. This sort of code-and-check method that is used to often saves us the hassle of running a query for half an hour, only to find out we forgot a column. Yay!</p>
 
 <p><img src="{{ page.root }}images/blog/2014-02-16-dplyr/yay_cat2.jpg" alt="Yay" style="width: 500px;"/></p>
 
