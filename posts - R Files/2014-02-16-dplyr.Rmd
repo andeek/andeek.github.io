@@ -14,7 +14,7 @@ This week we are reading documentation on the [dplyr](http://cran.r-project.org/
 
 * *filter()* - allows you to filter rows by a variable, much like *base::subset()*, 
 * *arrange()* - allows you to order rows by a variable either ascending or descending, 
-* *select()* - allows you to select columns of a variable, and supports the `:` operator for getting columns next to each other, 
+* *select()* - allows you to select columns of a variable, and supports the ':' operator for getting columns next to each other, 
 * *mutate()* - adds new columns as a function of the existing,
 * *summarise()* - collapses n rows to 1 through use of an aggregation function.
 
@@ -25,7 +25,7 @@ I am struck by the quickly closing gap between my R knowledge and my SQL knowled
 ###Chaining
 The other novel thing introduced in *dplyr* is an operator to chain verbs. This operator, %.%, allows you to apply multiple verbs to a dataset in a certain order through the syntax x %.% f(y) turns into f(x, y). The chaining of verbs allows us to construct "sentences", if you will, that can act on a data frame to produce the desired results.
 
-##Databases
+###Databases
 Anyone who has ever had to deal with a truly large dataset knows that the in-memory storage of data in R can be quite a pain. the *dplyr* package supports external storage of data in an open source database (sqlite, mysql and postgresql), or Google's bigquery. 
 
 What Hadley calls **lazy**, I call a stroke of genius. *dplyr* won't pull the entire dataset until you tell it to do so, through a collect() command. This way you can tinker with your query, seeing the top 10 rows of your results until you're happy. At this point you can say collect() and the full query will be run, pulling back the entire dataset. This sort of code-and-check method that is used to often saves us the hassle of running a query for half an hour, only to find out we forgot a column. Yay!

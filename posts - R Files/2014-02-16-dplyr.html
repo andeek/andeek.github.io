@@ -154,7 +154,7 @@ hr {
 <ul>
 <li><em>filter()</em> - allows you to filter rows by a variable, much like <em>base::subset()</em>, </li>
 <li><em>arrange()</em> - allows you to order rows by a variable either ascending or descending, </li>
-<li><em>select()</em> - allows you to select columns of a variable, and supports the <code>:</code> operator for getting columns next to each other, </li>
+<li><em>select()</em> - allows you to select columns of a variable, and supports the &#39;:&#39; operator for getting columns next to each other, </li>
 <li><em>mutate()</em> - adds new columns as a function of the existing,</li>
 <li><em>summarise()</em> - collapses n rows to 1 through use of an aggregation function.</li>
 </ul>
@@ -166,7 +166,7 @@ hr {
 <p>###Chaining
 The other novel thing introduced in <em>dplyr</em> is an operator to chain verbs. This operator, %.%, allows you to apply multiple verbs to a dataset in a certain order through the syntax x %.% f(y) turns into f(x, y). The chaining of verbs allows us to construct &ldquo;sentences&rdquo;, if you will, that can act on a data frame to produce the desired results.</p>
 
-<p>##Databases
+<p>###Databases
 Anyone who has ever had to deal with a truly large dataset knows that the in-memory storage of data in R can be quite a pain. the <em>dplyr</em> package supports external storage of data in an open source database (sqlite, mysql and postgresql), or Google&#39;s bigquery. </p>
 
 <p>What Hadley calls <strong>lazy</strong>, I call a stroke of genius. <em>dplyr</em> won&#39;t pull the entire dataset until you tell it to do so, through a collect() command. This way you can tinker with your query, seeing the top 10 rows of your results until you&#39;re happy. At this point you can say collect() and the full query will be run, pulling back the entire dataset. This sort of code-and-check method that is used to often saves us the hassle of running a query for half an hour, only to find out we forgot a column. Yay!</p>
