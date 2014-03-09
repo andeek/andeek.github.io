@@ -97,7 +97,7 @@ dplyr_test()
 
 ```
 As you can see, pretty similar in idea and in execution. We can check the speed of each method.
-```{r, results='hide'}
+```{r results='hide', message=FALSE}
 library(profr)
 datadr_prof <- profr(datadr_test())
 dplyr_prof <- profr(dplyr_test())
