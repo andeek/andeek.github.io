@@ -1,10 +1,9 @@
---
+---
 layout: post_ak
 title: "Reading: datadr - Divide and Recombine in R"
 root: "../../../../"
 comments: true
 ---
-
 As part of the course [Stat 585X](http://dicook.github.io/stat585/) I am taking this semester, I will be posting a series of responses to assigned course readings. Mostly these will be my rambling thoughts as I skim papers.
 
 ****
@@ -28,7 +27,7 @@ Let's take a look at an example of using both *datadr* and *dplyr* to accomplish
 
 We'll start with the *datadr* package.
 ```{r}
-#library(dev_tools)
+#library(devtools)
 #install_github("datadr", "hafen")
 library(datadr)
 data(adult)
