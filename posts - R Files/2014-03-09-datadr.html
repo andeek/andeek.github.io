@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title></title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h2></h2>
+
+<p>layout: post_ak
+title: &ldquo;Reading: datadr - Divide and Recombine in R&rdquo;
+root: &ldquo;../../../../&rdquo;</p>
+
+<h2>comments: true</h2>
+
+<p>As part of the course <a href="http://dicook.github.io/stat585/">Stat 585X</a> I am taking this semester, I will be posting a series of responses to assigned course readings. Mostly these will be my rambling thoughts as I skim papers.</p>
+
+<hr/>
+
+<p>This week we are reading documentation on the <a href="http://hafen.github.io/datadr/">datadr</a> package by Ryan Hafen from February 2014. This tutorial lay outs the introduction to the new package <em>datadr</em> as well as some background on the Divide-Recombine strategy that the package is built upon.</p>
+
+<p>###Divide and Recombine (or is it S-A-C?)
+The <strong>divide and recombine (D-R)</strong> strategy is very similar to something we have talked about recently: the Split-Apply-Combine paradigm. In fact, the two seem almost identical. The D-R strategy is to take a dataset, split it in a logical way into many chunks (<strong>divide</strong>) and then fit them back together after applying some transformation or summary (<strong>recombine</strong>). Sound familiar? This is the same idea as the S-A-C paradigm, except recombine encombasses both the <strong>apply</strong> and <strong>combine</strong> steps.</p>
+
+<p><img src="{{ page.root }}images/blog/2014-03-09-datadr/D-R_S-A-C.png" alt="Divide-recombine vs. Split-combine-apply strategy" style="width: 500px;"/></p>
+
+<p>###Birds of a feather&hellip;
+So we have a package (<em>datadr</em>) based on the D-R strategy and multiple packages (<em>plyr</em>, <em>dplyr</em>) based on the S-A-C paradigm, which are essentially the same thing. What&#39;s the difference between the packages? I would say in some ways <em>datadr</em> is more similar to <em>dplyr</em> than <em>plyr</em>, because</p>
+
+<ul>
+<li>In <em>datadr</em>, divisions are data objects that persist. The authors did this because with very large data, computing a division is expensive compared to recombination. This is similar to <em>dplyr</em> in that we can create an object with the <em>group_by()</em> function that persists. Often we will use the chaining methods with the <em>%.%</em> operator, but if splitting is an expensive operation and we may want to use the splits with different apply statements, keeping the splits around makes sense.</li>
+<li>Both <em>datadr</em> and <em>dplyr</em> allow for use of the same interface with different backends. For example, <em>dplyr</em> is easily used with data in R memory, or with data from a MySQL, SQLite, or postgreSQL database. Similarly, <em>datadr</em> can be used with data in R memory, or with data in a Hadoop Distributed File System (HDFS), RHIPE, or Hadoop MapReduce setup. Since <em>datadr</em> is already compatible with Hadoop, it would appear that this package has the one up on being able to handle truly <strong>huge</strong> datasets.</li>
+</ul>
+
+<p>However, <em>datadr</em> uses key-value pairs as its underlying data structure, which can be arranged in list form. <em>dplyr</em> is limited to using a data frame input and output. In this way <em>datadr</em> has some similarity to the <em>plyr</em> package.</p>
+
+</body>
+
+</html>
+
