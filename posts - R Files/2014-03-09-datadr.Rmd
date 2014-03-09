@@ -4,6 +4,7 @@ title: "Reading: datadr - Divide and Recombine in R"
 root: "../../../../"
 comments: true
 ---
+
 As part of the course [Stat 585X](http://dicook.github.io/stat585/) I am taking this semester, I will be posting a series of responses to assigned course readings. Mostly these will be my rambling thoughts as I skim papers.
 
 ****
