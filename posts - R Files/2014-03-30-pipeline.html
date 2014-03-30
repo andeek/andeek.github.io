@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title></title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<p>As part of the course <a href="http://dicook.github.io/stat585/">Stat 585X</a> I am taking this semester, I will be posting a series of responses to assigned course readings. Mostly these will be my rambling thoughts as I skim papers.</p>
+
+<hr/>
+
+<p>This week we are reading a paper on the elements of a data pipeline for visualization  by Andrea Buja, Daniel Asimov, Catherine Hurley, and John A. McDonald, a paper published in <a href="http://www.amazon.com/Dynamic-Graphics-Statistics-Wadsworth-Probability/dp/053409144X/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1396210229&amp;sr=1-1&amp;keywords=Dynamic+Graphics+Statistics+%28Wadsworth+%26+Brooks%2FCole+Statistics%2FProbability+Series%29">Dynamic Graphics for Statistics</a> from 1988. This paper, as well as a video on the software <a href="http://stat-graphics.org/movies/dataviewer.html">Data Viewer</a>, lay out some fundamentel steps that transform data to be visualized on a screen as well as taking results from an interaction and returning this as data.</p>
+
+<p>###What is a &#39;Viewing Pipeline&#39;?
+A <strong>viewing pipeline</strong> is the sequence of steps necessary to transform a dataset to be visualized on a screen. </p>
+
+<p><img src="{{ page.root }}images/blog/2014-03-30-pipeline/pipeline.png" alt="The data visualization pipline." style="width: 500px;"/></p>
+
+<p>These can be thought of as a mapping of data points (transformations, rotations, projection, and clipping) to an (x,y) coordinate on a screen or paper. These operations are so prevalent in my daily life that I don&#39;t often take the time to think of them formally. However, I did recently run into an example with my own research.</p>
+
+<p>###Example of a pipeline
+For my masters project I was working with visualizing graph data. Graph data typically won&#39;t come with an (x,y) for each point to then be plotted on a screen. Instead, a <em>graph layout</em> algorithm is used to calculate these coordinated. This can be thought of as the first transformation of a data pipeline. However, the fun isn&#39;t over! These (x,y) coordinated will then need to be mapped to a set of (x,y) coordinated relative to their relation on a screen. I did this using an svg element on the screen sized to my own choosing, meaning I then needed to transform points based on this new coordinate system. This two step process was necessary simply to view a graph on the computer screen.</p>
+
+<p>###Of course, there is more to it.
+A pipeline, however is more than just plotting. The pipeline can be used to pass manipulated data from the interactive graphic back through and edit the data, or create an alternative view of this data. For this reason, the authors advocate that any transformations (like rescaling or recentering) be invertible.</p>
+
+<p>###Respect the history
+I found this paper to be quite interesting as a window back in time. Many of the elements presented in the paper and the Data Viewer software I recognize as precursers to the <a href="http://www.ggobi.org/">GGobi</a> software, including projection pursuits and the grand tour. I also appreciated the appearance of visual inference and the lineup protocol in the paper.</p>
+
+</body>
+
+</html>
+
