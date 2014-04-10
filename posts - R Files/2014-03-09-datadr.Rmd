@@ -41,7 +41,7 @@ edTable <- summary(adultDdf)$education$freqTable
 edTable$var <- with(edTable, reorder(var, Freq, mean))
 qplot(var, Freq, data=edTable, geom="point") + coord_flip()
 ```
-Let's group the grades together where appropriate and remove preschool. We can make these changes to the education variable within the *divide()* function. Of course, we could do this to the original data in this case, but this is an illustrations. For very large data, it would make more sense (read: be possible) to apply any transformations during the division.
+Let's group the grades together where appropriate and remove preschool. We can make these changes to the education variable within the *divide()* function. Of course, we could do this to the original data in this case, but this is an illustration. For very large data, it would make more sense (read: be possible) to apply any transformations during the division.
 ```{r}
 datadr_test <- function() {
   # make a preTransFn to group some education levels
@@ -97,7 +97,7 @@ dplyr_test()
 
 ```
 As you can see, pretty similar in idea and in execution. We can check the speed of each method.
-```{r, results='hide'}
+```{r, message=FALSE, results='hide', fig.show='hide'}
 library(profr)
 datadr_prof <- profr(datadr_test())
 dplyr_prof <- profr(dplyr_test())
