@@ -85,13 +85,12 @@ d3.json("us_states_5m.json", function(error, us) {
 	  .attr("id", "state-borders")
 	  .attr("d", path);
 	  
-});
-
-//cities saved from R
-d3.csv("us.cities.csv", function(data) {
-   root = data.map(function(d) { return { name: d["name"], state: d["country.etc"], lat: +d["lat"], long: +d["long"], added: false }; });
-   update_map();
-   setTimeout(update_map, 1000);
+	//cities saved from R
+	d3.csv("us.cities.csv", function(data) {
+	   root = data.map(function(d) { return { name: d["name"], state: d["country.etc"], lat: +d["lat"], long: +d["long"], added: false }; });
+	   update_map()
+	});
+	  
 });
 
 
