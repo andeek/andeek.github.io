@@ -87,7 +87,7 @@ d3.json("us_states_5m.json", function(error, us) {
 	  
 });
 
-if(d3.selectAll('.states').length() > 0) {
+if(d3.selectAll('.states').length > 0) {
 //cities saved from R
 d3.csv("us.cities.csv", function(data) {
    root = data.map(function(d) { return { name: d["name"], state: d["country.etc"], lat: +d["lat"], long: +d["long"], added: false }; });
