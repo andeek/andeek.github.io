@@ -23,7 +23,7 @@ These three ideas on their own can be very powerful, but together I imagine the 
 #Model in the data space
 A common way to diagnose the fit of a model is to display the data in the model space. For example, with linear regression we often look at plots of residuals versus fitted values to assess the assumptions of a linear model. This maps each observation (data) to a point in two dimensions that are summaries from the model (in the model space). The authors suggest flipping this paradigm and mapping the model in the data space instead. One way to accomplish this for a predictive model with continuous response is to visualize the response surface over a grid of predictors.
 
-```{r, results='markup'}
+```{r, results='asis'}
 library(ggplot2)
 library(dplyr)
 library(tidyr)
@@ -45,7 +45,6 @@ lines <- readLines("images/blog/2015-01-29-ModelVis/index.html")
 lines <- lines[-1]
 
 cat(paste(lines, collapse="\n"))
-
 ```
 
 
