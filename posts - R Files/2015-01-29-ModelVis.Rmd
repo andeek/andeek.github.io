@@ -52,9 +52,9 @@ In many modeling activities, some models are fit within the same family of model
 
 This is an important concept that can be applied to the model selection process, and is what the authors suggest when they say "look at members in a collection". We can explore multiple models and hopefully find out something we never expected about the data and benefits of different models.
 
-To get an idea for how this works, I will fit everypossible combination of predictors in the *mtcars* example for models with at least two explanatory variables. We can then look at the values for the stimates of the coefficients associated with each variable in a parallel coordinates plot. Note that a value of zero means that variable wasn't included in the model.
+To get an idea for how this works, I will fit everypossible combination of predictors in the *mtcars* example for models with at least two explanatory variables. We can then look at the values for the stimates of the coefficients associated with each variable in a parallel coordinates plot. Note that a value of zero means that variable wasn't included in the model. We can aso plot some (standardized) model fit diagnostics for each model and look for a relationship between complexity and fit for our many models.
 
-```{r}
+```{r, out.width='50%', fig.show='hold'}
 formulas <- data.frame(n_param = 2:(ncol(mtcars) - 1)) %>%
   mutate(num_comb = choose(ncol(mtcars) - 1, n_param)) %>%
   group_by(n_param) %>%
@@ -64,11 +64,16 @@ res <- list()
 for(i in 1:nrow(formulas)) {
   tmp <- data.frame()
   for(j in formulas[i,"forms"][[1]][[1]]) {
-    coefs <- data.frame(lm(j, data = mtcars)$coef)
+    m <- lm(j, data = mtcars)
+    coefs <- data.frame(m$coef)
     names(coefs) <- "value"
     coefs$pred <- rownames(coefs)
     rownames(coefs) <- NULL
     coefs$formula <- paste(all.vars(j), collapse=",")
+    coefs$aic <- AIC(m)
+    coefs$bic <- BIC(m)
+    coefs$r.square <- summary(m)$r.squared
+    coefs$n_param <- formulas[i, "n_param"][[1]] + 1
     tmp <- rbind(tmp, coefs)
   }
   res[[i]] <- tmp
@@ -77,16 +82,28 @@ for(i in 1:nrow(formulas)) {
 res <- ldply(res)
 res %>%
   spread(key = pred, value = value, fill = 0) %>%
-  gather(pred, estimate, -formula) -> estimates
+  gather(pred, estimate, -c(formula, aic, bic, r.square, n_param)) -> estimates
 
 estimates %>%
   filter(pred != "(Intercept)") %>%
   ggplot() +
   geom_line(aes(pred, estimate, group = formula))
 
+estimates %>% 
+  select(n_param, aic, bic, r.square) %>%
+  distinct() %>%
+  select(-n_param) %>%
+  scale() %>%
+  cbind(estimates %>% select(n_param, aic) %>% distinct() %>% select(n_param)) %>%
+  gather(measure, value, -n_param) %>% 
+  ggplot() +
+  geom_point(aes(n_param, value)) + facet_wrap(~measure) +
+  ylab("Standardized value") + xlab("Number of Parameters")
+  
+
 ```
 
-It would be interesting to explore this plot with interactive brushing, as was done in the paper, however there are still interesting things to note about the models. First, number of carburetors (*carb*), number of cylinders in the engine (*cyl*), and weight (*wt*) always negatively affect fuel efficiency when included in the model. Secondly it appears the number of forward gears (*gear*), 1/4 mile time (*qsec*) and V/S (*vs*) can either negatively **or** positively affect fuel efficiency. It would be interesting to investigate which models these are to explore collinearity in the model.
+It would be interesting to explore these plots with interactive linked brushing, as was done in the paper, however there are still interesting things to note about the models. First, number of carburetors (*carb*), number of cylinders in the engine (*cyl*), and weight (*wt*) always negatively affect fuel efficiency when included in the model. Secondly it appears the number of forward gears (*gear*), 1/4 mile time (*qsec*) and V/S (*vs*) can either negatively **or** positively affect fuel efficiency. It would be interesting to investigate which models these are to explore collinearity in the model.
 
 #Understanding the process
 By understanding how a model is fit, and by that I mean the algorithm that fits the model, we can more fully understand how specific data affect the resulting model. This can often be accomplished by visualizing the iterations of a model fitting algorithm to view each step in the process. For example, using the Newton-Raphson method, we could see the steps taken to arrive at a maximum in maximum likelihood fitting for a specific model.
