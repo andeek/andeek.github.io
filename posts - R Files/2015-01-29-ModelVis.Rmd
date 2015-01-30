@@ -54,7 +54,7 @@ This is an important concept that can be applied to the model selection process,
 
 To get an idea for how this works, I will fit everypossible combination of predictors in the *mtcars* example for models with at least two explanatory variables. We can then look at the values for the stimates of the coefficients associated with each variable in a parallel coordinates plot. Note that a value of zero means that variable wasn't included in the model. We can aso plot some (standardized) model fit diagnostics for each model and look for a relationship between complexity and fit for our many models.
 
-```{r, out.width='50%', fig.show='hold'}
+```{r, out.width='45%', fig.show='hold'}
 formulas <- data.frame(n_param = 2:(ncol(mtcars) - 1)) %>%
   mutate(num_comb = choose(ncol(mtcars) - 1, n_param)) %>%
   group_by(n_param) %>%
