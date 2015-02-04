@@ -20,7 +20,7 @@ In reality, a neural network is a highly flexible non-linear model that can be u
 
 
 {% highlight r %}
-grViz(replace_in_spec("
+diagram <- grViz(replace_in_spec("
 digraph a_nice_graph {
 
 # node definitions with substituted label text
@@ -43,16 +43,18 @@ a -> {b c d e f g h i j}
 [1]: 'top'
 [2]: 10:20
 "))
+
+grVizOutput(diagram)
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-1399" style="width:504px;height:504px;" class="grViz"></div>
-<script type="application/json" data-for="htmlwidget-1399">{ "x": {
- "diagram": "\ndigraph a_nice_graph {\n\n# node definitions with substituted label text\nnode [fontname = Helvetica]\na [label = \"top\"]\nb [label = \"10\"]\nc [label = \"11\"]\nd [label = \"12\"]\ne [label = \"13\"]\nf [label = \"14\"]\ng [label = \"15\"]\nh [label = \"16\"]\ni [label = \"17\"]\nj [label = \"18\"]\n\n# edge definitions with the node IDs\na -> {b c d e f g h i j}\n}",
-"config": {
- "engine": "dot",
-"options": null 
-} 
-},"evals": [  ] }</script><!--/html_preserve-->
+
+
+{% highlight text %}
+## Warning in if (!is.na(attribValue)) {: the condition has length > 1 and
+## only the first element will be used
+{% endhighlight %}
+
+<!--html_preserve--><div id="list(diagram = &quot;\ndigraph a_nice_graph {\n\n# node definitions with substituted label text\nnode [fontname = Helvetica]\na [label = \&quot;top\&quot;]\nb [label = \&quot;10\&quot;]\nc [label = \&quot;11\&quot;]\nd [label = \&quot;12\&quot;]\ne [label = \&quot;13\&quot;]\nf [label = \&quot;14\&quot;]\ng [label = \&quot;15\&quot;]\nh [label = \&quot;16\&quot;]\ni [label = \&quot;17\&quot;]\nj [label = \&quot;18\&quot;]\n\n# edge definitions with the node IDs\na -&gt; {b c d e f g h i j}\n}&quot;, config = list(engine = &quot;dot&quot;, options = NULL))" id="NULL" id="NULL" id="list(defaultWidth = NULL, defaultHeight = NULL, padding = NULL, viewer = list(defaultWidth = NULL, defaultHeight = NULL, padding = NULL, fill = TRUE, suppress = TRUE, paneHeight = NULL), browser = list(defaultWidth = NULL, defaultHeight = NULL, padding = NULL, fill = FALSE), knitr = list(defaultWidth = NULL, defaultHeight = NULL, figure = TRUE))" id="NULL" id="NULL" style="width:100%; height:400px" class="grViz html-widget html-widget-output"></div><!--/html_preserve-->
 
 
 
