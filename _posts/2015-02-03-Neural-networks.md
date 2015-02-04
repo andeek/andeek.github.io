@@ -1,0 +1,59 @@
+---
+title: "Reading: Neural networks"
+layout: "post_ak"
+comments: yes
+root: ../../../../
+---
+
+As part of the course [Stat 503](http://streaming.stat.iastate.edu/~dicook/EDA.and.datamining/) I am taking this semester, I will be posting a series of responses to assigned course readings. Mostly these will be my rambling thoughts as I skim papers.
+
+****
+
+This week we are watching some videos on neural networks from Andrew Ng, as well as Trevor Hastie and Robert Tibshirani ([video 1](https://class.coursera.org/ml-005/lecture/43) [video 2](https://class.coursera.org/ml-005/lecture/44) [video 3](https://class.coursera.org/ml-005/lecture/45) [video4](https://class.coursera.org/ml-005/lecture/46) [video 5](https://www.youtube.com/watch?v=31Q5FGRnxt4) [video 6](https://www.youtube.com/watch?v=MpX8rVv_u4E)). These videos give a good introduction to the concepts behind neural networks, including the model representaion, motivation behind, and a detailed explanation of logistic regression.
+
+###A neural what what?
+The term "neural network" for me evokes images of an incredibly complex model that is fit with some unknown blackbox procedure, probably in the cloud. Something like this.
+
+<img src="{{ page.root }}images/blog/2015-02-03-Neural-network/big_data.jpg" alt="http://bigdatapix.tumblr.com/" style="width: 500px;"/>
+
+In reality, a neural network is a highly flexible non-linear model that can be used for classification. The model uses multiple layers that are related to each other through sigmoid functions. Hence, a neural network is something like a hierarchical logistic regression. We can make a simplified cartoon of the model to get a better understanding.
+
+
+{% highlight r %}
+library(DiagrammeR)
+
+diagram <- "
+graph LR
+subgraph Visible Layer
+A((input 1))-->B((activation 1))
+A((input 1))-->C((activation 2))
+A((input 1))-->D((activation 3))
+E((input 2))-->B((activation 1))
+E((input 2))-->C((activation 2))
+E((input 2))-->D((activation 3))
+F((input 3))-->B((activation 1))
+F((input 3))-->C((activation 2))
+F((input 3))-->D((activation 3))
+end
+
+subgraph Hidden Layer
+B-->G(( ))
+C-->G(( ))
+D-->G(( ))
+end
+
+subgraph Output Layer
+G-->H((sigmoid function))
+end
+"
+mermaid(diagram)
+{% endhighlight %}
+
+<!--html_preserve--><div id="htmlwidget-5628" style="width:504px;height:504px;" class="DiagrammeR"></div>
+<script type="application/json" data-for="htmlwidget-5628">{ "x": {
+ "diagram": "\ngraph LR\nsubgraph Visible Layer\nA((input 1))-->B((activation 1))\nA((input 1))-->C((activation 2))\nA((input 1))-->D((activation 3))\nE((input 2))-->B((activation 1))\nE((input 2))-->C((activation 2))\nE((input 2))-->D((activation 3))\nF((input 3))-->B((activation 1))\nF((input 3))-->C((activation 2))\nF((input 3))-->D((activation 3))\nend\n\nsubgraph Hidden Layer\nB-->G(( ))\nC-->G(( ))\nD-->G(( ))\nend\n\nsubgraph Output Layer\nG-->H((sigmoid function))\nend\n" 
+},"evals": [  ] }</script><!--/html_preserve-->
+
+
+
+
