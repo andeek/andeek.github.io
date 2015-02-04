@@ -19,12 +19,14 @@ Said no one, ever. Using a dynamic document, like the proposed *compendium* remo
 
 ###Run with it
 The authors sell the idea of a compendium in terms of flexibility for the reader. She should be able to choose whether she wants to read code behind figures or hide it. This got me thinking. The readers of my blog (Hi, Dad!) only have this choice if I send them the compendium itself. Otherwise, I choose which code they see and which code I want to hide (*bwahaha*, the power is ALL MINE). I would like to implement Gentleman and Temple Lang's compendium idea inside my blog. So, from now on you will have the power to choose to see all code if you like, or none at all. To toggle, click this button and hide or show how this pretty picture is made. 
+
 <div id="clickme2">
   <span>
     <i class="fa fa-gear"></i>  
     Click here
   </span>
 </div>
+
 <script>
 $( "#clickme2" ).click(function() {
   $( "code" ).toggle( "slow", function() {
@@ -38,7 +40,7 @@ $( "#clickme2" ).click(function() {
 
 {% highlight r %}
 # Generate data
-library(reshape2)  # for melt
+library(reshape2) # for melt
 library(ggplot2)
 volcano3d <- melt(volcano)
 names(volcano3d) <- c("x", "y", "z")
@@ -48,8 +50,7 @@ v <- ggplot(volcano3d, aes(x, y, z = z))
 v + geom_tile(aes(fill = z)) + stat_contour()
 {% endhighlight %}
 
-![center](../../../../../images/blog/2014-02-01-reproducible-research/unnamed-chunk-1.png) 
-
+![center](../../../../../images/blog/2014-02-01-reproducible-research/unnamed-chunk-1-1.png) 
 From here on out, it will be a part of all future blog posts. Choose your own adventure guys!
 
 
