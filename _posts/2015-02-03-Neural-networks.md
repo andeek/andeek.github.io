@@ -44,17 +44,10 @@ a -> {b c d e f g h i j}
 [2]: 10:20
 "))
 
-grVizOutput(diagram)
+cat(as.character(grVizOutput(diagram)[[1]]))
 {% endhighlight %}
 
-
-
-{% highlight text %}
-## Warning in if (!is.na(attribValue)) {: the condition has length > 1 and
-## only the first element will be used
-{% endhighlight %}
-
-<!--html_preserve--><div id="list(diagram = &quot;\ndigraph a_nice_graph {\n\n# node definitions with substituted label text\nnode [fontname = Helvetica]\na [label = \&quot;top\&quot;]\nb [label = \&quot;10\&quot;]\nc [label = \&quot;11\&quot;]\nd [label = \&quot;12\&quot;]\ne [label = \&quot;13\&quot;]\nf [label = \&quot;14\&quot;]\ng [label = \&quot;15\&quot;]\nh [label = \&quot;16\&quot;]\ni [label = \&quot;17\&quot;]\nj [label = \&quot;18\&quot;]\n\n# edge definitions with the node IDs\na -&gt; {b c d e f g h i j}\n}&quot;, config = list(engine = &quot;dot&quot;, options = NULL))" id="NULL" id="NULL" id="list(defaultWidth = NULL, defaultHeight = NULL, padding = NULL, viewer = list(defaultWidth = NULL, defaultHeight = NULL, padding = NULL, fill = TRUE, suppress = TRUE, paneHeight = NULL), browser = list(defaultWidth = NULL, defaultHeight = NULL, padding = NULL, fill = FALSE), knitr = list(defaultWidth = NULL, defaultHeight = NULL, figure = TRUE))" id="NULL" id="NULL" style="width:100%; height:400px" class="grViz html-widget html-widget-output"></div><!--/html_preserve-->
+<div id="list(diagram = &quot;\ndigraph a_nice_graph {\n\n# node definitions with substituted label text\nnode [fontname = Helvetica]\na [label = \&quot;top\&quot;]\nb [label = \&quot;10\&quot;]\nc [label = \&quot;11\&quot;]\nd [label = \&quot;12\&quot;]\ne [label = \&quot;13\&quot;]\nf [label = \&quot;14\&quot;]\ng [label = \&quot;15\&quot;]\nh [label = \&quot;16\&quot;]\ni [label = \&quot;17\&quot;]\nj [label = \&quot;18\&quot;]\n\n# edge definitions with the node IDs\na -&gt; {b c d e f g h i j}\n}&quot;, config = list(engine = &quot;dot&quot;, options = NULL))" id="NULL" id="NULL" id="list(defaultWidth = NULL, defaultHeight = NULL, padding = NULL, viewer = list(defaultWidth = NULL, defaultHeight = NULL, padding = NULL, fill = TRUE, suppress = TRUE, paneHeight = NULL), browser = list(defaultWidth = NULL, defaultHeight = NULL, padding = NULL, fill = FALSE), knitr = list(defaultWidth = NULL, defaultHeight = NULL, figure = TRUE))" id="NULL" id="NULL" style="width:100%; height:400px" class="grViz html-widget html-widget-output"></div>
 
 
 
