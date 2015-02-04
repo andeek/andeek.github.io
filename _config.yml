@@ -2,7 +2,7 @@ name: Andee Kaplan
 description: Ph.D. student at Iowa State University Statistics
 url: http://andeekaplan.com
 auto: true
-markdown: kramdown
+markdown: rdiscount
 permalink: /:year/:month/:day/:title
 rdiscount extensions: [smart]
 navigation:
