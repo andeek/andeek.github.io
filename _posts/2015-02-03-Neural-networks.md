@@ -14,44 +14,44 @@ This week we are watching some videos on neural networks from Andrew Ng, as well
 ###A neural what what?
 The term "neural network" for me evokes images of an incredibly complex model that is fit with some unknown blackbox procedure, probably in the cloud. Something like this.
 
-<img src="{{ page.root }}images/blog/2015-02-03-Neural-network/big_data.jpg" alt="http://bigdatapix.tumblr.com/" style="width: 500px;"/>
+<img src="{{ page.root }}images/blog/2015-02-03-Neural-networks/big_data.jpg" alt="http://bigdatapix.tumblr.com/" style="width: 500px;"/>
 
 In reality, a neural network is a highly flexible non-linear model that can be used for classification. The model uses multiple layers that are related to each other through sigmoid functions. Hence, a neural network is something like a hierarchical logistic regression. We can make a simplified cartoon of the model to get a better understanding.
 
 
 {% highlight r %}
-library(DiagrammeR)
+grViz(replace_in_spec("
+digraph a_nice_graph {
 
-diagram <- "
-graph LR
-subgraph Visible Layer
-A((input 1))-->B((activation 1))
-A((input 1))-->C((activation 2))
-A((input 1))-->D((activation 3))
-E((input 2))-->B((activation 1))
-E((input 2))-->C((activation 2))
-E((input 2))-->D((activation 3))
-F((input 3))-->B((activation 1))
-F((input 3))-->C((activation 2))
-F((input 3))-->D((activation 3))
-end
+# node definitions with substituted label text
+node [fontname = Helvetica]
+a [label = '@@1']
+b [label = '@@2-1']
+c [label = '@@2-2']
+d [label = '@@2-3']
+e [label = '@@2-4']
+f [label = '@@2-5']
+g [label = '@@2-6']
+h [label = '@@2-7']
+i [label = '@@2-8']
+j [label = '@@2-9']
 
-subgraph Hidden Layer
-B-->G(( ))
-C-->G(( ))
-D-->G(( ))
-end
+# edge definitions with the node IDs
+a -> {b c d e f g h i j}
+}
 
-subgraph Output Layer
-G-->H((sigmoid function))
-end
-"
-mermaid(diagram)
+[1]: 'top'
+[2]: 10:20
+"))
 {% endhighlight %}
 
-<!--html_preserve--><div id="htmlwidget-5628" style="width:504px;height:504px;" class="DiagrammeR"></div>
-<script type="application/json" data-for="htmlwidget-5628">{ "x": {
- "diagram": "\ngraph LR\nsubgraph Visible Layer\nA((input 1))-->B((activation 1))\nA((input 1))-->C((activation 2))\nA((input 1))-->D((activation 3))\nE((input 2))-->B((activation 1))\nE((input 2))-->C((activation 2))\nE((input 2))-->D((activation 3))\nF((input 3))-->B((activation 1))\nF((input 3))-->C((activation 2))\nF((input 3))-->D((activation 3))\nend\n\nsubgraph Hidden Layer\nB-->G(( ))\nC-->G(( ))\nD-->G(( ))\nend\n\nsubgraph Output Layer\nG-->H((sigmoid function))\nend\n" 
+<!--html_preserve--><div id="htmlwidget-1399" style="width:504px;height:504px;" class="grViz"></div>
+<script type="application/json" data-for="htmlwidget-1399">{ "x": {
+ "diagram": "\ndigraph a_nice_graph {\n\n# node definitions with substituted label text\nnode [fontname = Helvetica]\na [label = \"top\"]\nb [label = \"10\"]\nc [label = \"11\"]\nd [label = \"12\"]\ne [label = \"13\"]\nf [label = \"14\"]\ng [label = \"15\"]\nh [label = \"16\"]\ni [label = \"17\"]\nj [label = \"18\"]\n\n# edge definitions with the node IDs\na -> {b c d e f g h i j}\n}",
+"config": {
+ "engine": "dot",
+"options": null 
+} 
 },"evals": [  ] }</script><!--/html_preserve-->
 
 
