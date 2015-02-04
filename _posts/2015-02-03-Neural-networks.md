@@ -43,14 +43,14 @@ pos <- matrix(c(c(0.10, 0.850),
 
 plotmat(M, pos = pos, name = names, lwd = 1, box.lwd = 2, 
         curve = 0, cex.txt = 0.8, box.size = 0.1,
-        box.prop = 0.5, arr.type = "triangle")
+        box.prop = 0.5, arr.type = "triangle", arr.pos = .75)
 {% endhighlight %}
 
 ![center](../../../../../images/blog/2015-02-03-Neural-networks/unnamed-chunk-1-1.png) 
 
 The model is thought of as being in three layers (from left to right): the visible layer, the hidden layer, and the output layer. The hidden layer activation nodes values $a_i^{(2)}, i =1,\dots,3$ are each calculated as the sigmoid function of the linear combination of $x_j$'s. For example, $a_i^{(2)} = g\left(\sum_{j=1}^3\theta^{(1)}_{ij}x_j\right)$ where $g(x) = \frac{1}{1+e^{-x}}$. Then, at the output layer, each of these activation units is put together the same way to get $h_\theta(x) = g\left(\sum_{j=1}^3\theta^{(2)}_{ij}a^{(2)}_j\right)$. In this way, neural networks are similar to inception.
 
-<img src="{{ page.root }}images/blog/2015-02-03-Neural-networks/inception_meme.jpg" alt="http://bigdatapix.tumblr.com/" style="width: 500px;"/>
+<img src="{{ page.root }}images/blog/2015-02-03-Neural-networks/inception_meme.png" alt="inception" style="width: 500px;"/>
 
 ###Links to biology
 Neural networks are so named because supposedly, this is what our brains do. They have neurons that have inputs and outputs and they connect to each other to relay messages. This ties to statistical learning in that it is thought that the neurons themselves can learn as well. So rather than having a set of neurons for everything we could want to do in life, we have a bunch of neurons that can learn everything we need to know, when we need it. Neural networks are so called because the algorithm was an attempt to mimic the brain.
