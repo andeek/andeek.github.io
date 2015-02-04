@@ -18,7 +18,8 @@ The term "neural network" for me evokes images of an incredibly complex model th
 
 In reality, a neural network is a highly flexible non-linear model that can be used for classification. The model uses multiple layers that are related to each other through sigmoid functions. Hence, a neural network is something like a nested logistic regression.
 
-```{r}
+
+{% highlight r %}
 library(diagram)
 library(dplyr)
 
@@ -43,8 +44,9 @@ pos <- matrix(c(c(0.10, 0.850),
 plotmat(M, pos = pos, name = names, lwd = 1, box.lwd = 2, 
         curve = 0, cex.txt = 0.8, box.size = 0.1,
         box.prop = 0.5, arr.type = "triangle")
+{% endhighlight %}
 
-```
+![center](../../../../../images/blog/2015-02-03-Neural-networks/unnamed-chunk-1-1.png) 
 
 The model is thought of as being in three layers (from left to right): the visible layer, the hidden layer, and the output layer. The hidden layer activation nodes values $a_i^{(2)}, i =1,\dots,3$ are each calculated as the sigmoid function of the linear combination of $x_j$'s. For example, $a_i^{(2)} = g\left(\sum_{j=1}^3\theta^{(1)}_{ij}x_j\right)$ where $g(x) = \frac{1}{1+e^{-x}}$. Then, at the output layer, each of these activation units is put together the same way to get $h_\theta(x) = g\left(\sum_{j=1}^3\theta^{(2)}_{ij}a^{(2)}_j\right)$. In this way, neural networks are similar to inception.
 
