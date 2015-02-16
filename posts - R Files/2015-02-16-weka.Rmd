@@ -1,0 +1,25 @@
+---
+title: "Watching: Data mining with Weka"
+layout: "post_ak"
+comments: yes
+root: ../../../../
+---
+
+As part of the course [Stat 503](http://streaming.stat.iastate.edu/~dicook/EDA.and.datamining/) I am taking this semester, I will be posting a series of responses to assigned course readings and videos. Mostly these will be my rambling thoughts as I skim papers.
+
+****
+
+This week we are watching some videos on using [Weka](http://www.cs.waikato.ac.nz/ml/weka/) for data mining. The videos come from Brandon Weinburg and Ian Witten ([video 1](https://www.youtube.com/watch?v=m7kpIBGEdkI) [video 2](https://www.youtube.com/user/WekaMOOC) [video 3](https://www.youtube.com/watch?v=bUsPNNr6pvg)). These videos give a good introduction to using Weka in various classification examples, including an interactive tree classifier.
+
+###A note on instructional videos
+Before I talk about the very cool software Weka, I'd like first to make a statement about instructional videos. I was very impressed with the video quality from Ian Witten. As someone who has started (and not finished) multiple MOOCs, I have to say that video quality matters, at least to me. When a video will show the speaker as well as the content (slides, program) **and** add sound of some quality I find I am much more likely to be engaged with the subject. Kudos to Ian Witten for keeping me interested in his videos.
+
+###What is Weka?
+A weka is an adorable large flightless New Zealand bird.
+
+<img src="{{ page.root }}images/blog/2015-02-16-weka/weka.jpg" alt="http://bigdatapix.tumblr.com/" style="width: 500px;"/>
+
+Weka, however, stands for Waikato Environment for Knowledge Analysis. It is a machine learning toolbox that was created at the University of Waikato in New Zealand to be used as a workbench for performing tasks related to machine learning. These tasks include classification as well as data preprocessing. From the three videos linked above, I get the impression that Weka is a very powerful and flexible tool that contains many different algorithms for classification. Another interesting thing I noticed about Weka is that it's flexible in a smart way. The creators of Weka recognized that certain algorithms can only take certain types of data (i.e. in logistic regression the response should be categorical), and as such have only made certain options available with individual algorithms. I enjoy finding these tradeoffs between usability and flexibility in software.
+
+###Be a classifier
+The video that got me most excited about using Weka was the third video. In this video, we are shown how Weka can allow the user to be the classifier. Weka contains a classification "algorithm" called *UserClassifier* in which the user is able to create a tree by selecting regions in the space to separate. This type of user interaction with the classification can really open up the possibility for understanding classification algorithms that I find very exciting. In this UserClassifier, a user can select regions in space based on visualizing two explanatory variables at a time. A neat (and natural) extension would be to combine this idea with the projection pursuit of GGobi to be able to find interesting projections of variables to split on. 
