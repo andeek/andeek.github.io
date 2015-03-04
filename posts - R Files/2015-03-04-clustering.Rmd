@@ -1,0 +1,73 @@
+---
+title: "Reading: Hierarchical Clustering"
+layout: "post_ak"
+comments: yes
+root: ../../../../
+---
+
+As part of the course [Stat 503](http://streaming.stat.iastate.edu/~dicook/EDA.and.datamining/) I am taking this semester, I will be posting a series of responses to assigned course readings and videos. Mostly these will be my rambling thoughts as I skim papers.
+
+****
+
+This week we reading some documents on clustering methods from Steven Holland ([link](http://strata.uga.edu/6370/lecturenotes/clusterAnalysis.html)) and J. C. Wang ([link](http://www.stat.wmich.edu/wang/561/classnotes/Grouping/Cluster.pdf)). These readings give a good introduction to the concepts behind hierarchical cluster analysis, including dendrograms, agglomerative methods, and divisive methods.
+
+###Introduction
+From Holland's leacture, cluster analysis can be thought of as two sets of techniques: partitioning and hierarchical clustering. Both methods are designed to find groups of similar items within the dataset, but partition divides the dataset into a pre-designated number of groups, while hierarchical methods create a hierarchy of clusters either by combining small groups (*agglomerative*) or splitting large ones (*divisive*).
+
+In a hierarchical approach, we can inspect a tree plot known as a dendrogram that shows the structure and how groups are combined or divided. By inspecting a dendrogram, it can become apparent where to split the tree by loking for large distances from one level of splitting to the next. In this way, hierarchical methods are not limited to a pre-determined number of clusters (like partitioning methods).
+
+Wang breaks down clustering into four distinct steps corresponding to the following questions.
+
+> Partitioning (forming clusters)
+> 1. What variables are used to compute similarity (or distance) among objects?
+> 2. How to define similarity (or distance) measure?
+> 3. What algorithm should be used to place similar objects into clusters?
+> 4. How many clusters should be formed?
+
+It is very important to answer these questions before clustering, because in many cases fitting multiple options can lead to more confusion rather than clarity. For an example of how to answer one of the above questions (3.), we can look at the order in which clusters are joined, controlled by the linkage methods. There are many options available for linkage. The single-linkage method is based on the elements of two clusters that are most similar, and complete-linkage method is based on the elements that are most dissimilar. The median, group average, and centroid methods all emphasize the central tendency of clusters. Lastly, Ward’s method joins clusters based on minimizing the within-group sum of squares. One should choose a linkage method based on a desired trait: single and complete linkage are based on outliers, which may be important for catching extreme cases. The central tendency linkages are less sensitive to outliers, which may be useful. Finally, Ward's method tends to produce compact clusters.
+
+###Example
+To get a better feel for how agglomorative hierarchical clustering can be done in **R**, I'm going to run through an example of clustering cake recipes by ingredients. In this example, we are looking to find groups of similar cakes based on the ingredients that go into making them. The data is available from the package **cluster.datasets**.
+
+```{r data, out.width='45%', fig.show='hold', fig.height = 3, fig.width = 3, message=FALSE, warning=FALSE}
+library(cluster.datasets)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(knitr)
+
+data(cake.ingredients.1961)
+summary(cake.ingredients.1961)
+
+#replace NA with 0 for not required ingredients
+dat.cake <- apply(cake.ingredients.1961, 2, function(col){
+  col[is.na(col)] <- 0
+  return(col)
+})
+
+dat.cake %>% 
+  data.frame() %>% 
+  mutate_each(funs(as.numeric), -Cake) %>%
+  mutate_each(funs(scale), -Cake) -> dat.cake #standardize columns for hclust
+
+clust.euc.single <- hclust(dist(dat.cake[, -1], method = "euclidean"), method = "single")
+clust.euc.complete <- hclust(dist(dat.cake[, -1], method = "euclidean"), method = "complete")
+clust.euc.centroid <- hclust(dist(dat.cake[, -1], method = "euclidean"), method = "centroid")
+clust.euc.ward <- hclust(dist(dat.cake[, -1], method = "euclidean"), method = "ward.D2")
+
+plot(clust.euc.single)
+plot(clust.euc.complete)
+plot(clust.euc.centroid)
+plot(clust.euc.ward)
+abline(h = 12, col = "red")
+```
+
+I've chosen to look at eucliden distance for the cake ingredients and four distinct linkage mechanisms. Personally, I would want to use Wards to get some nice compact clusters, but it may be useful to see other methods. We can see that the single linkage appears to chain the clusters, adding an element within the same cluster over an over. The centroid does something similarly, but not as extreme. Finally, complete and Ward's method of linkage appear to add elements to the clusters in a more even keeled manner.  For the Ward's method, I've chosen to split into two clusters by drawing a horizontal line at a height of 12. This leavs us with he following two sets of cake clusters.
+
+```{r cluster-cut}
+cake.tree <- cutree(clust.euc.ward, h = 12)
+as.character(dat.cake[cake.tree == 1, "Cake"])
+as.character(dat.cake[cake.tree == 2, "Cake"])
+```
+
+It is evident that our custering mechanism was able to split the cheesecakes from the other cakes, which tells me that cheesecake is a fundamentally different kind of cake (and maybe explains why I don't like it very much).

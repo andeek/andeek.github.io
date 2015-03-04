@@ -7,4 +7,4 @@ KnitPost <- function(input, base.url = "/") {
   render_jekyll()
   knit(input, envir = parent.frame())
 }
-KnitPost("2015-02-16-weka.Rmd", '../../../../')
+KnitPost("2015-03-04-clustering.Rmd", '../../../../')
