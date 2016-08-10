@@ -36,7 +36,7 @@ library(reshape2)
 library(plyr)
 library(ggplot2)
 
-flu.dat <- read.table("http://www.google.org/flutrends/us/data.txt", sep=",", header=TRUE, skip=11)
+flu.dat <- read.table("https://www.google.org/flutrends/about/data/flu/us/data.txt", sep=",", header=TRUE, skip=11)
 flu.m <- melt(flu.dat[,1:53], id.vars=c('Date')) #only care about states
 flu.m <- subset(flu.m, variable != 'United.States') #remove US
 
