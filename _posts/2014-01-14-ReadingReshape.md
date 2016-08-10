@@ -32,13 +32,7 @@ library(reshape)
 ```
 
 ```
-## Loading required package: plyr
-## 
-## Attaching package: 'reshape'
-## 
-## The following objects are masked from 'package:plyr':
-## 
-##     rename, round_any
+## Error: there is no package called 'reshape'
 ```
 
 ```r
@@ -46,9 +40,7 @@ print(smiths)
 ```
 
 ```
-##      subject time age weight height
-## 1 John Smith    1  33     90   1.87
-## 2 Mary Smith    1  NA     NA   1.54
+## Error: object 'smiths' not found
 ```
 
 We can see here, there is a combination identity of *subject* and *time* with three metrics: *age*, *weight*, and *height*. By using reshape, we can easily transform this data into a molten or tall format.
@@ -58,13 +50,7 @@ We can see here, there is a combination identity of *subject* and *time* with th
 ```
 
 ```
-##      subject time variable value
-## 1 John Smith    1      age 33.00
-## 2 Mary Smith    1      age    NA
-## 3 John Smith    1   weight 90.00
-## 4 Mary Smith    1   weight    NA
-## 5 John Smith    1   height  1.87
-## 6 Mary Smith    1   height  1.54
+## Error: could not find function "melt"
 ```
 
 Now we have a tall dataset with one column for the name of metrics and one for the values of these metrics. 
@@ -77,9 +63,7 @@ cast(smiths.m, formula = subject + time ~ variable)
 ```
 
 ```
-##      subject time age weight height
-## 1 John Smith    1  33     90   1.87
-## 2 Mary Smith    1  NA     NA   1.54
+## Error: could not find function "cast"
 ```
 
 

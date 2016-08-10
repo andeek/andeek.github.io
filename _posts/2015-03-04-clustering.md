@@ -11,7 +11,7 @@ As part of the course [Stat 503](http://streaming.stat.iastate.edu/~dicook/EDA.a
 
 This week we reading some documents on clustering methods from Steven Holland ([link](http://strata.uga.edu/6370/lecturenotes/clusterAnalysis.html)) and J. C. Wang ([link](http://www.stat.wmich.edu/wang/561/classnotes/Grouping/Cluster.pdf)). These readings give a good introduction to the concepts behind hierarchical cluster analysis, including dendrograms, agglomerative methods, and divisive methods.
 
-###Introduction
+### Introduction
 From Holland's leacture, cluster analysis can be thought of as two sets of techniques: partitioning and hierarchical clustering. Both methods are designed to find groups of similar items within the dataset, but partition divides the dataset into a pre-designated number of groups, while hierarchical methods create a hierarchy of clusters either by combining small groups (*agglomerative*) or splitting large ones (*divisive*).
 
 In a hierarchical approach, we can inspect a tree plot known as a dendrogram that shows the structure and how groups are combined or divided. By inspecting a dendrogram, it can become apparent where to split the tree by loking for large distances from one level of splitting to the next. In this way, hierarchical methods are not limited to a pre-determined number of clusters (like partitioning methods).
@@ -26,7 +26,7 @@ Wang breaks down clustering into four distinct steps corresponding to the follow
 
 It is very important to answer these questions before clustering, because in many cases fitting multiple options can lead to more confusion rather than clarity. For an example of how to answer one of the above questions (3.), we can look at the order in which clusters are joined, controlled by the linkage methods. There are many options available for linkage. The single-linkage method is based on the elements of two clusters that are most similar, and complete-linkage method is based on the elements that are most dissimilar. The median, group average, and centroid methods all emphasize the central tendency of clusters. Lastly, Ward’s method joins clusters based on minimizing the within-group sum of squares. One should choose a linkage method based on a desired trait: single and complete linkage are based on outliers, which may be important for catching extreme cases. The central tendency linkages are less sensitive to outliers, which may be useful. Finally, Ward's method tends to produce compact clusters.
 
-###Example
+### Example
 To get a better feel for how agglomorative hierarchical clustering can be done in **R**, I'm going to run through an example of clustering cake recipes by ingredients. In this example, we are looking to find groups of similar cakes based on the ingredients that go into making them. The data is available from the package **cluster.datasets**.
 
 
