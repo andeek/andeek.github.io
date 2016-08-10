@@ -19,7 +19,27 @@ With the creation of these four concepts, *lubridate* offers a flexible and easy
 
 {% highlight r %}
 library(lubridate)
-wday(ymd("2014-10-22"), label = TRUE, abbr = FALSE)
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## 
+## Attaching package: 'lubridate'
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## The following object is masked from 'package:base':
+## 
+##     date
+{% endhighlight %}
+
+
+
+{% highlight r %}
+wday(ymd('2014-10-22'), label=TRUE, abbr=FALSE)
 {% endhighlight %}
 
 
@@ -28,10 +48,9 @@ wday(ymd("2014-10-22"), label = TRUE, abbr = FALSE)
 ## [1] Wednesday
 ## 7 Levels: Sunday < Monday < Tuesday < Wednesday < Thursday < ... < Saturday
 {% endhighlight %}
-
 Hump day, well that's a bummer. 
 
-###Time Zones
+### Time Zones
 Something great that *lubridate* has functionality for is handling time zones and daylight savings time. For example, as I write this blog post I can find out what time it is in Hawaii, where they are playing the NFL Pro-bowl tonight.
 
 {% highlight r %}
@@ -41,7 +60,7 @@ with_tz(Sys.time())
 
 
 {% highlight text %}
-## [1] "2014-01-26 18:55:32 CST"
+## [1] "2016-08-10 10:36:33 CDT"
 {% endhighlight %}
 
 
@@ -53,42 +72,157 @@ with_tz(Sys.time(), "Pacific/Honolulu")
 
 
 {% highlight text %}
-## [1] "2014-01-26 14:55:32 HST"
+## [1] "2016-08-10 05:36:33 HST"
 {% endhighlight %}
 
-
-###Arithmetic
+### Arithmetic
 The time objects in *lubridate* facilitate arithmetic with dates and times. For a quick example let's look at flu data from Google that gives an indicator of the current status on flu incidences across states and the nation. Say we want to look at the average value of the past two weeks. This is doable using *lubridate*.
 
 {% highlight r %}
 library(reshape2)
 library(plyr)
-library(ggplot2)
-
-flu.dat <- read.table("http://www.google.org/flutrends/us/data.txt", sep = ",", 
-    header = TRUE, skip = 11)
-flu.m <- melt(flu.dat[, 1:53], id.vars = c("Date"))  #only care about states
-flu.m <- subset(flu.m, variable != "United.States")  #remove US
-
-flu.m$Date <- ymd(as.character(flu.m$Date))
-
-flu.order <- ddply(subset(flu.m, Date >= max(flu.m$Date) - weeks(2)), .(variable), 
-    summarise, avg_2weeks = mean(value))
 {% endhighlight %}
 
+
+
+{% highlight text %}
+## -------------------------------------------------------------------------
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## You have loaded plyr after dplyr - this is likely to cause problems.
+## If you need functions from both plyr and dplyr, please load plyr first, then dplyr:
+## library(plyr); library(dplyr)
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## -------------------------------------------------------------------------
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## 
+## Attaching package: 'plyr'
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## The following object is masked from 'package:lubridate':
+## 
+##     here
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## The following objects are masked from 'package:dplyr':
+## 
+##     arrange, count, desc, failwith, id, mutate, rename, summarise,
+##     summarize
+{% endhighlight %}
+
+
+
+{% highlight r %}
+library(ggplot2)
+
+flu.dat <- read.table("http://www.google.org/flutrends/us/data.txt", sep=",", header=TRUE, skip=11)
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in file(file, "rt"): cannot open the connection
+{% endhighlight %}
+
+
+
+{% highlight r %}
+flu.m <- melt(flu.dat[,1:53], id.vars=c('Date')) #only care about states
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in melt(flu.dat[, 1:53], id.vars = c("Date")): object 'flu.dat' not found
+{% endhighlight %}
+
+
+
+{% highlight r %}
+flu.m <- subset(flu.m, variable != 'United.States') #remove US
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in subset(flu.m, variable != "United.States"): object 'flu.m' not found
+{% endhighlight %}
+
+
+
+{% highlight r %}
+flu.m$Date <- ymd(as.character(flu.m$Date))
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in lapply(list(...), .num_to_date): object 'flu.m' not found
+{% endhighlight %}
+
+
+
+{% highlight r %}
+flu.order <- ddply(subset(flu.m, Date >= max(flu.m$Date) - weeks(2)),.(variable), summarise, avg_2weeks=mean(value))
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in subset(flu.m, Date >= max(flu.m$Date) - weeks(2)): object 'flu.m' not found
+{% endhighlight %}
 Then we could look at plots ordered by this average value over the past two week and see what states are having similar flu levels in the last two weeks.
 
 {% highlight r %}
-flu.copy <- merge(flu.m, flu.order, all.x = TRUE)
-flu.copy$variable <- factor(flu.copy$variable, levels = as.character(flu.order[with(flu.order, 
-    order(-avg_2weeks)), "variable"]))
-
-ggplot(flu.copy) + geom_line(aes(x = Date, y = value, group = variable)) + facet_wrap(~variable, 
-    nrow = 11)
+flu.copy <- merge(flu.m, flu.order, all.x=TRUE)
 {% endhighlight %}
 
-![center](../../../../../images/blog/2014-01-26-lubridate/unnamed-chunk-4.png) 
 
+
+{% highlight text %}
+## Error in merge(flu.m, flu.order, all.x = TRUE): object 'flu.m' not found
+{% endhighlight %}
+
+
+
+{% highlight r %}
+flu.copy$variable <- factor(flu.copy$variable, levels=as.character(flu.order[with(flu.order, order(-avg_2weeks)),"variable"]))
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in factor(flu.copy$variable, levels = as.character(flu.order[with(flu.order, : object 'flu.copy' not found
+{% endhighlight %}
+
+
+
+{% highlight r %}
+ggplot(flu.copy) + geom_line(aes(x=Date, y=value, group=variable)) + facet_wrap(~variable, nrow=11)
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in ggplot(flu.copy): object 'flu.copy' not found
+{% endhighlight %}
 Without *lubridate*, grappling with the arithmetic of going back 2 weeks would have been painful. I like to avoid painful time arithmetic, so I'm happy to know my way around *lubridate*.
 
 

@@ -22,14 +22,14 @@ wday(ymd('2014-10-22'), label=TRUE, abbr=FALSE)
 ```
 Hump day, well that's a bummer. 
 
-###Time Zones
+### Time Zones
 Something great that *lubridate* has functionality for is handling time zones and daylight savings time. For example, as I write this blog post I can find out what time it is in Hawaii, where they are playing the NFL Pro-bowl tonight.
 ```{r, echo=TRUE}
 with_tz(Sys.time())
 with_tz(Sys.time(), "Pacific/Honolulu")
 ```
 
-###Arithmetic
+### Arithmetic
 The time objects in *lubridate* facilitate arithmetic with dates and times. For a quick example let's look at flu data from Google that gives an indicator of the current status on flu incidences across states and the nation. Say we want to look at the average value of the past two weeks. This is doable using *lubridate*.
 ```{r, echo=TRUE}
 library(reshape2)

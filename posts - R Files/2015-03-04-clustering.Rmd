@@ -19,6 +19,7 @@ In a hierarchical approach, we can inspect a tree plot known as a dendrogram tha
 Wang breaks down clustering into four distinct steps corresponding to the following questions.
 
 > Partitioning (forming clusters)
+>
 > 1. What variables are used to compute similarity (or distance) among objects?
 > 2. How to define similarity (or distance) measure?
 > 3. What algorithm should be used to place similar objects into clusters?

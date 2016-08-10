@@ -11,7 +11,7 @@ As part of the course [Stat 503](http://streaming.stat.iastate.edu/~dicook/EDA.a
 
 This week we are watching some videos on neural networks from Andrew Ng, as well as Trevor Hastie and Robert Tibshirani ([video 1](https://class.coursera.org/ml-005/lecture/43) [video 2](https://class.coursera.org/ml-005/lecture/44) [video 3](https://class.coursera.org/ml-005/lecture/45) [video4](https://class.coursera.org/ml-005/lecture/46) [video 5](https://www.youtube.com/watch?v=31Q5FGRnxt4) [video 6](https://www.youtube.com/watch?v=MpX8rVv_u4E)). These videos give a good introduction to the concepts behind neural networks, including the model representaion, motivation behind, and a detailed explanation of logistic regression.
 
-###A neural what what?
+### A neural what what?
 The term "neural network" for me evokes images of an incredibly complex model that is fit with some unknown blackbox procedure, probably in the cloud. Something like this.
 
 <img src="{{ page.root }}images/blog/2015-02-03-Neural-networks/big_data.jpg" alt="http://bigdatapix.tumblr.com/" style="width: 500px;"/>
@@ -50,7 +50,7 @@ The model is thought of as being in three layers (from left to right): the visib
 
 <img src="{{ page.root }}images/blog/2015-02-03-Neural-networks/inception_meme.png" alt="inception" style="width: 500px;"/>
 
-###Links to biology
+### Links to biology
 Neural networks are so named because supposedly, this is what our brains do. They have neurons that have inputs and outputs and they connect to each other to relay messages. This ties to statistical learning in that it is thought that the neurons themselves can learn as well. So rather than having a set of neurons for everything we could want to do in life, we have a bunch of neurons that can learn everything we need to know, when we need it. Neural networks are so called because the algorithm was an attempt to mimic the brain.
 
 As functional MRI and advanced brain imaging have improved, so has our understanding of the brain. However, when this methodology first became popular in the 1980s, however we knew a lot less about the brain ([see here](http://www.pbs.org/wgbh/pages/frontline/shows/teenbrain/work/how.html)). As such, I think it's fair to question whether a neural network actually does mimic the human brain, or whether it is just a catchy name for a very flexible non-linear classification model. I have to be honest, "neural network" does sound a whole lot more exciting!

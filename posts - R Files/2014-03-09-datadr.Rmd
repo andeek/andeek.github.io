@@ -9,24 +9,24 @@ As part of the course [Stat 585X](http://dicook.github.io/stat585/) I am taking 
 ****
 This week we are reading documentation on the [datadr](http://hafen.github.io/datadr/) package by Ryan Hafen from February 2014. This tutorial lay outs the introduction to the new package *datadr* as well as some background on the Divide-Recombine strategy that the package is built upon.
 
-###Divide and Recombine (or is it S-A-C?)
+### Divide and Recombine (or is it S-A-C?)
 The **divide and recombine (D-R)** strategy is very similar to something we have talked about recently: the Split-Apply-Combine paradigm. In fact, the two seem almost identical. The D-R strategy is to take a dataset, split it in a logical way into many chunks (**divide**) and then fit them back together after applying some transformation or summary (**recombine**). Sound familiar? This is the same idea as the S-A-C paradigm, except recombine encompasses both the **apply** and **combine** steps.
 
 <img src="{{ page.root }}images/blog/2014-03-09-datadr/D-R_S-A-C.png" alt="Divide-recombine vs. Split-combine-apply strategy" style="width: 500px;"/>
 
-###Birds of a feather...
+### Birds of a feather...
 So we have a package (*datadr*) based on the D-R strategy and multiple packages (*plyr*, *dplyr*) based on the S-A-C paradigm, which are essentially the same thing. What's the difference between the packages? I would say in some ways *datadr* is more similar to *dplyr* than *plyr*, because
 
-* In *datadr*, divisions are data objects that persist. The authors did this because with very large data, computing a division is expensive compared to recombination. This is similar to *dplyr* in that we can create an object with the *group_by()* function that persists. Often we will use the chaining methods with the *%.%* operator, but if splitting is an expensive operation and we may want to use the splits with different apply statements, keeping the splits around makes sense.
+* In *datadr*, divisions are data objects that persist. The authors did this because with very large data, computing a division is expensive compared to recombination. This is similar to *dplyr* in that we can create an object with the *group_by()* function that persists. Often we will use the chaining methods with the *%>%* operator, but if splitting is an expensive operation and we may want to use the splits with different apply statements, keeping the splits around makes sense.
 * Both *datadr* and *dplyr* allow for use of the same interface with different backends. For example, *dplyr* is easily used with data in R memory, or with data from a MySQL, SQLite, or postgreSQL database. Similarly, *datadr* can be used with data in R memory, or with data in a Hadoop Distributed File System (HDFS), RHIPE, or Hadoop MapReduce setup. Since *datadr* is already compatible with Hadoop, it would appear that this package has the one up on being able to handle truly **huge** datasets.
 
 However, *datadr* uses key-value pairs as its underlying data structure, which can be arranged in list form. *dplyr* is limited to using a data frame input and output. In this way *datadr* has some similarity to the *plyr* package.
 
-###Side-by-side example
+### Side-by-side example
 Let's take a look at an example of using both *datadr* and *dplyr* to accomplish the same task. The data is adult income from the 1994 census database, pulled from the (UCI machine learning repository)[http://archive.ics.uci.edu/ml/datasets/Adult].
 
 We'll start with the *datadr* package.
-```{r}
+```{r, warning=FALSE, message=FALSE}
 #library(devtools)
 #install_github("datadr", "hafen")
 library(datadr)
@@ -38,7 +38,7 @@ names(adultDdf)
 
 library(ggplot2)
 edTable <- summary(adultDdf)$education$freqTable
-edTable$var <- with(edTable, reorder(var, Freq, mean))
+edTable$var <- with(edTable, reorder(value, Freq, mean))
 qplot(var, Freq, data=edTable, geom="point") + coord_flip()
 ```
 Let's group the grades together where appropriate and remove preschool. We can make these changes to the education variable within the *divide()* function. Of course, we could do this to the original data in this case, but this is an illustration. For very large data, it would make more sense (read: be possible) to apply any transformations during the division.
@@ -54,15 +54,19 @@ datadr_test <- function() {
   }
   
   # divide by edGroup and filter out "Preschool"
-  byEdGroup <- divide(adultDdf, by="edGroup", 
-                      preTransFn=edGroups, 
+  byEdGroup <- divide(addTransform(adultDdf, edGroups), by="edGroup", 
                       filterFn=function(x) x$edGroup[1] != "Preschool",
                       update=TRUE)
   
   print(byEdGroup)
   
   # tabulate number of people in each education group
-  edGroupTable <- recombine(byEdGroup, apply=nrow, combine=combRbind())
+  nrowTransform <- function(key, val) {
+    newval <- nrow(val)
+    kvPair(key, newval)
+  }
+  
+  edGroupTable <- recombine(addTransform(byEdGroup, nrowTransform), combine=combRbind())
   print(edGroupTable)
   
   #order for plotting
@@ -77,16 +81,17 @@ Now let's do the same thing with *dplyr*.
 ```{r}
 library(dplyr)
 dplyr_test <- function() {
-  byEdGroup_dplyr <- adult %.%
-                      mutate(edGroup = ifelse(as.character(education) %in% c("1st-4th", "5th-6th"), "Some-elementary",
-                                              ifelse(as.character(education) %in% c("7th-8th", "9th"), "Some-middle", 
-                                                     ifelse(as.character(education) %in% c("10th", "11th", "12th"), "Some-HS", as.character(education))))) %.%
-                      filter(edGroup != "Preschool") %.%
+  byEdGroup_dplyr <- adult %>%
+    mutate(edGroup = ifelse(as.character(education) %in% c("1st-4th", "5th-6th"), "Some-elementary",
+                            ifelse(as.character(education) %in% c("7th-8th", "9th"), "Some-middle",
+                                   ifelse(as.character(education) %in% c("10th", "11th", "12th"), "Some-HS", 
+                                          as.character(education))))) %>%
+                      filter(edGroup != "Preschool") %>%
                       group_by(edGroup)
   print(byEdGroup_dplyr)  
   
-  edGroupTable_dplyr <- byEdGroup_dplyr %.%
-                        summarise(count=n())
+  edGroupTable_dplyr <- byEdGroup_dplyr %>%
+    summarise(count = n())
   print(edGroupTable_dplyr)
   
   #order for plotting
@@ -104,6 +109,6 @@ dplyr_prof <- profr(dplyr_test())
 ```
 *datadr* took `r datadr_prof[with(datadr_prof, order(-time)), "time"][1]` seconds, while *ddply* took `r dplyr_prof[with(dplyr_prof, order(-time)), "time"][1]` seconds. That's a `r round((datadr_prof[with(datadr_prof, order(-time)), "time"][1] - dplyr_prof[with(dplyr_prof, order(-time)), "time"][1])/datadr_prof[with(datadr_prof, order(-time)), "time"][1]*100,2)`% speedup over *datadr* in this example. 
 
-###Takeaways
+### Takeaways
 It seems like both *datadr* and *dplyr* have their benefits. Of course, this example is almost a joke because of everything is small enough to fit in memory. I'd like to test these packages on a much bigger dataset and see what I think after that. The ability of using Hadoop with *datadr* is an attractive one, although I don't anticipate ever having me hands on data big enough to use it to it's fullest capability. Both are interesting packages building on a sound principle and I look forward to using both more.
 
