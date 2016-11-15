@@ -2,6 +2,21 @@
    HTML ELEMENTS
 ----------------------------------------------------- */
 
+/* side by side divs*/
+div.wrapper {
+  display: flex;
+}
+div.left {
+  flex: 0 0 25%;
+}
+div.right {
+  flex: 1;
+}
+
+img.image-thumbnail {
+	height: 100px;
+}
+
 /* top elements */
 * { padding: 0; margin: 0; }
 
@@ -10,14 +25,14 @@ body {
 	font: normal .70em/1.7em Verdana, 'Trebuchet MS', Tahoma, sans-serif;
 	color: #555;
 	text-align: center;
-	background: #180700;	
+	background: #180700;
 }
 
 /* links */
 a {
-	color:#CB4721; 
+	color:#CB4721;
 	background-color: inherit;
-	text-decoration: none;	
+	text-decoration: none;
 }
 a:hover {
 	background-color: inherit;
@@ -41,7 +56,7 @@ p, h1, h2, h3 {
 
 ul, ol {
 	margin: 10px 30px;
-	padding: 0 15px;	
+	padding: 0 15px;
 }
 
 /* images */
@@ -53,7 +68,7 @@ img.no-border {
 	border: none;
 }
 img.float-right {
-  margin: 5px 0px 5px 15px;  
+  margin: 5px 0px 5px 15px;
 }
 img.float-left {
   margin: 5px 15px 5px 0px;
@@ -64,9 +79,9 @@ code {
   padding: 10px;
   text-align: left;
   display: block;
-  overflow: auto;  
+  overflow: auto;
   font: 500 1em/1.5em 'Lucida Console', 'courier new', monospace;
-  /* white-space: pre; */   
+  /* white-space: pre; */
   background: #FCFCF9;
   border: 1px solid #EFEFEF;
 }
@@ -76,8 +91,8 @@ acronym {
 }
 blockquote {
 	margin: 15px;
- 	padding: 0 0 0 30px;  	
-  	font: bold 1.3em/1.5em 'Trebuchet MS', Sans-serif;   
+ 	padding: 0 0 0 30px;
+  	font: bold 1.3em/1.5em 'Trebuchet MS', Sans-serif;
 	background: #FCFCF9;
    border: 1px solid #EFEFEF;
 	color: #6C6E3A;
@@ -86,7 +101,7 @@ blockquote {
 /* start - table */
 table {
 	border-collapse: collapse;
-	margin: 15px;	
+	margin: 15px;
 }
 th strong {
 	color: #FFF;
@@ -117,8 +132,8 @@ td {
 form {
 	margin: 15px;
 	padding: 15px 5px;
-	border: 1px solid #EFEFEF; 
-	background: #F8F8F8;	
+	border: 1px solid #EFEFEF;
+	background: #F8F8F8;
 }
 label {
 	display:block;
@@ -128,7 +143,7 @@ label {
 input {
 	padding: 2px;
 	border: 1px solid #EFEFEF;
-	font: normal 1em Verdana, 'Trebuchet MS', Tahoma, sans-serif;	
+	font: normal 1em Verdana, 'Trebuchet MS', Tahoma, sans-serif;
 	color: #666666;
 }
 textarea {
@@ -137,39 +152,39 @@ textarea {
 	border: 1px solid #EFEFEF;
 	font: normal 1em Verdana, 'Trebuchet MS', Tahoma, sans-serif;
 	height:100px;
-	display:block;		
+	display:block;
 	color: #666666;
 }
-input.button { 
-	margin: 0; 
-	font: bold 1em Arial, Sans-serif; 
+input.button {
+	margin: 0;
+	font: bold 1em Arial, Sans-serif;
 	border: 1px solid #EFEFEF;
-	padding: 2px 3px; 	
+	padding: 2px 3px;
 	background: #F1F0E4;
 }
 
 /* search form */
 .searchform {
 	background-color: transparent;
-	border: none;	
-	margin: 0; padding: 5px 0 15px 0;	
-	width: 190px;	
+	border: none;
+	margin: 0; padding: 5px 0 15px 0;
+	width: 190px;
 }
 .searchform p { margin: 0; padding: 0; }
-.searchform input.textbox { 
+.searchform input.textbox {
 	width: 120px;
-	color: #333; 
+	color: #333;
 	height: 18px;
-	padding: 2px;	
+	padding: 2px;
 	vertical-align: top;
 }
-.searchform input.button { 
-	font: bold 12px Arial, Sans-serif; 
-	color: #333;	
+.searchform input.button {
+	font: bold 12px Arial, Sans-serif;
+	color: #333;
 	width: 60px;
 	height: 26px;
 	border: none;
-	padding: 3px 5px;	
+	padding: 3px 5px;
 	vertical-align: top;
 }
 
@@ -178,34 +193,34 @@ input.button {
 ************************/
 
 #header-content, #footer-content, #content {
-	width: 810px;		
+	width: 810px;
 }
 #header-wrap, #footer-wrap, #content-wrap {
-	min-width: 810px;	
+	min-width: 810px;
 }
 
 /* header */
 #header-wrap {
 	height: 160px;
-	text-align: left;	
-	background: #FFF url(../images/headerbg.jpg) repeat-x 0 0;			
+	text-align: left;
+	background: #FFF url(../images/headerbg.jpg) repeat-x 0 0;
 }
 #header-content {
 	position: relative;
-	margin: 0 auto; 
+	margin: 0 auto;
 	padding: 0;
 }
 #header-content #logo {
-	position: absolute;	
+	position: absolute;
 	font: normal 40px/65px Georgia, "Times New Roman", Times, serif;
-	letter-spacing: -1px; 
+	letter-spacing: -1px;
 	color: #FFF;
 	background: #3F1204 url(../images/logobg.jpg) repeat-x left top;
 	border: 1px solid #4E460F;
 	height: 65px;
 	padding: 0 10px;
 	margin: 0;
-	
+
 	/* change the values of left and top to adjust the position of the logo */
 	top: 18px; left: 0px;
 }
@@ -215,12 +230,12 @@ input.button {
 	background: transparent;
 }
 #header-content #slogan {
-	position: absolute;	
+	position: absolute;
 	font: normal 12px 'Trebuchet MS', Tahoma, sans-serif;
 	letter-spacing: 0px;
-	color: #BBB;	 
+	color: #BBB;
 	margin: 0; padding: 0;
-	
+
 	/* change the values of left and top to adjust the position of the slogan */
 	top: 88px; left: 30px;
 }
@@ -228,11 +243,11 @@ input.button {
 /* header menu */
 #header-content ul {
 	position: absolute;
-	right: 0px; top: 125px; 
+	right: 0px; top: 125px;
 	font: bold 12px Georgia, "Times New Roman", Times, serif;
 	list-style: none;
-	margin: 0; padding: 0;		
-	text-transform: uppercase;		
+	margin: 0; padding: 0;
+	text-transform: uppercase;
 }
 #header-content li {
 	display: inline;
@@ -240,30 +255,30 @@ input.button {
 #header-content li a {
 	float: left;
 	display: block;
-	padding: 0px 18px 7px 18px;	
-	color: #F3A251; 
+	padding: 0px 18px 7px 18px;
+	color: #F3A251;
 	text-decoration: none;
 }
 #header-content li a:hover {
 	color: #F88F26;
 }
-#header-content li a#current  {	
-	color: #FFF;	
+#header-content li a#current  {
+	color: #FFF;
 }
-#header-content li a.current  {	
-	color: #FFF;	
+#header-content li a.current  {
+	color: #FFF;
 }
 
 #header-content #header-links {
 	position: absolute;
-	top: 5px; right:10px;	
+	top: 5px; right:10px;
 	color: #8E5F2F;
 	font-size: 90%;
 }
 #header-content #header-links P {
 	margin: 0; padding: 0;
 }
-#header-content #header-links a {	
+#header-content #header-links a {
 	color: #A4A4A4;
 	text-decoration: none;
 }
@@ -275,13 +290,13 @@ input.button {
 #content-wrap {
 	clear: both;
 	background: #FFF url(../images/contentbg.jpg) repeat-y center top;
-	float: left;		
+	float: left;
 	width: 100%;
 }
 #content {
-	text-align: left;	
+	text-align: left;
 	margin: 30px auto;
-	padding: 0;	
+	padding: 0;
 }
 
 /* sidebar */
@@ -296,12 +311,12 @@ input.button {
 	color: #6C6E3A;
 	padding: 0;
 	margin: 15px 0 10px 5px;
-	letter-spacing:-1px;	
+	letter-spacing:-1px;
 }
 #sidebar ul.sidemenu {
 	margin: 5px 0 15px 0;
-	padding: 0;	
-	border-top: 1px dashed #E1E1E1;	
+	padding: 0;
+	border-top: 1px dashed #E1E1E1;
 }
 #sidebar ul.sidemenu li {
 	list-style: none;
@@ -309,27 +324,27 @@ input.button {
 }
 #sidebar ul.sidemenu a {
 	display: block;
-	color: #666666; 
+	color: #666666;
 	text-decoration: none;
-	padding: .3em 0 .3em 10px;		
+	padding: .3em 0 .3em 10px;
 	width: 94%;
 }
 #sidebar ul.sidemenu a:hover {
 	padding: .3em 0 .3em 10px;
 	color: #CB4721;
-	background: #FFF;	
+	background: #FFF;
 }
 
 /* main */
 #main {
-	margin: 0 20px 10px 0; 
-	padding: 0;		
+	margin: 0 20px 10px 0;
+	padding: 0;
 	width: 590px;
-	float: left;	
+	float: left;
 }
-#main h1 { 
+#main h1 {
 	font: normal 2.25em Georgia, "Times New Roman", Times, serif;
-	color: #111; 	
+	color: #111;
 	padding: 0 0 5px 0;
 	margin: 15px 15px 20px 15px;
 	letter-spacing:-1px;
@@ -353,11 +368,11 @@ input.button {
 	clear: both;
 	padding: 2.5em 0;
 	font: normal .95em 'Trebuchet MS', Tahoma, sans-serif;
-	text-align: left;	
+	text-align: left;
 	background: url(../images/footerbg.jpg) repeat-x 0 0;
 	color: #CCC;
 	width: 100%;
-	float: left;	
+	float: left;
 }
 #footer-wrap p {
 	margin-left: 0;
@@ -369,8 +384,8 @@ input.button {
 	color: #CC9933;
 	margin-left: 5px;
 }
-#footer-content {	
-	margin: 0 auto;		
+#footer-content {
+	margin: 0 auto;
 }
 #footer-content a {
 	color: #C8935D;
@@ -381,14 +396,14 @@ input.button {
 }
 #footer-content ul {
 	list-style: none;
-	margin: 0; padding: 0;	
+	margin: 0; padding: 0;
 	width: 98%;
 }
 #footer-content ul.columns li {
-	border-bottom: 1px dashed #272727;	
+	border-bottom: 1px dashed #272727;
 }
 #footer-content ul.columns li.top {
-	border-top: 1px dashed #272727;	
+	border-top: 1px dashed #272727;
 }
 #footer-content ul.columns li a {
 	display: block;
@@ -404,15 +419,15 @@ input.button {
 }
 #footer-content .col {
 	width: 260px;
-	padding: 0 0 30px 0;			
+	padding: 0 0 30px 0;
 }
 #footer-content .space-sep {
 	margin-right: 20px;
 }
 #footer-content .col2 {
 	width: 245px;
-	padding: 0 0 30px 0;	
-	display: inline;	
+	padding: 0 0 30px 0;
+	display: inline;
 }
 
 /* alignment classes */
@@ -427,33 +442,33 @@ input.button {
 
 .post-footer {
 	font-size: 95%;
-	border: 1px solid #EFEFEF; 
-	background: #F8F8F8; 
+	border: 1px solid #EFEFEF;
+	background: #F8F8F8;
 	padding: 8px 10px;
 	margin: 30px 15px 10px 15px;
 }
 .post-footer .date {
-	background: url(../images/'clock.gif') no-repeat left center; 
-	padding-left: 20px; margin: 0 10px 0 5px;	
+	background: url(../images/'clock.gif') no-repeat left center;
+	padding-left: 20px; margin: 0 10px 0 5px;
 }
 .post-footer .comments {
-	background: url(../images/'comment.gif') no-repeat left center; 
-	padding-left: 20px; margin: 0 10px 0 5px;	
+	background: url(../images/'comment.gif') no-repeat left center;
+	padding-left: 20px; margin: 0 10px 0 5px;
 }
 .post-footer .readmore {
 	background: url(../images/'page.gif') no-repeat left center;
-	padding-left: 20px; margin: 0 10px 0 5px;	
+	padding-left: 20px; margin: 0 10px 0 5px;
 }
 
 /*added css*/
 .archive{
-	color:#CB4721; 
+	color:#CB4721;
 	background-color: inherit;
 	text-decoration: none;
 }
 
 .archive:hover{
-	
+
 	cursor: pointer;
 }
 
@@ -514,13 +529,13 @@ width:360px;
 .error {
 	font-weight: bold;
 	color: #FF0000;
-}, 
+},
 .warning {
 	font-weight: bold;
-} 
+}
 .message {
 	font-style: italic;
-} 
+}
 .source, .output, .warning, .error, .message {
   padding: 0em 1em;
   border:solid 1px #F7F7F7;
@@ -616,6 +631,3 @@ pre {
 .listing-item a{padding:.2em 1em;}
 .listing-item time{color:#999999;}
 .listing-seperator{font-weight:bold;}
-
-
-
