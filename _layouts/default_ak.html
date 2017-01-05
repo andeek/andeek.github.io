@@ -58,6 +58,9 @@
 				  {% if page.url == stupid or page.layout == link.layout or page.post == link.text %}
 					{% assign current = 'current' %}
 				  {% endif %}
+					{% if page.url == "/" and stupid == "/index" %}
+					{% assign current = 'current' %}
+					{% endif %}
 				  <li class="{% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
 					<a class="{{ current }}" href="{{ link.url }}">{{ link.text }}</a>
 				  </li>
