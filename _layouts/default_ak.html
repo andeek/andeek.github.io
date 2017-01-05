@@ -54,7 +54,8 @@
 			<ul>
 				{% for link in site.navigation %}
 				  {% assign current = nil %}
-				  {% if page.url == link.url or page.layout == link.layout or page.post == link.text %}
+					{% assign stupid = link.url | remove: ".html" %}
+				  {% if page.url == stupid or page.layout == link.layout or page.post == link.text %}
 					{% assign current = 'current' %}
 				  {% endif %}
 				  <li class="{% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
