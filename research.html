@@ -1,158 +1,108 @@
 ---
 layout: default_ak
 pagetitle: Research
-title: Projects
+title: Bayesian Entity Resolution
 root: ""
 extra: particles
 ---
 
+<p>
+Record linkage (deduplication or entity resolution) is the process of merging together noisy databases and removing duplicate entities, often in the absence of a unique identifier. Linking data from multiple databases can increase the utility of many datasets and performing this linkage procedure using Bayesian methods can greatly enhance the analysis that results through the opportunity for error propagation. My work has broadly focused on improving computational efficiency of fitting Bayesian entity resolution models and ensuring proper inference on linked data can be achieved. Applications include official statistics, ecology, and social sciences.
+</p>
+
+<h4>Papers (* denotes student)</h4>
+
+<p>Drew, L.*, <b>Kaplan, A.</b>, and Breckheimer, I. "A Bayesian Record Linkage Approach to Tree Demography Using Overlapping Lidar Scans". (2023+).</p>
+
+<p>Taylor, I.*, <b>Kaplan, A.</b>, and Betancourt, B. "Fast Bayesian Record Linkage for Streaming Data Contexts". (2023+).</p>
+
+<p><b>Kaplan, A.</b>, Betancourt, B., and Steorts, R. C. <a href="https://www.tandfonline.com/doi/full/10.1080/00031305.2022.2041482" target="_blank">"A Practical Approach to Proper Inference with Linked Data"</a>. The American Statistician 76.4 (2022), pp. 384 - 393.</p>
+
+<p>Lu, X.*, Hooten, M., <b>Kaplan, A.</b>, Womble, J., and Bower, M. <a href="https://link.springer.com/article/10.1007/s13253-021-00484-w" target="_blank">"Improving Wildlife Population Inference Using Aerial Imagery and Entity Resolution"</a>. Journal of Agricultural, Biological and Environmental Statistics 27.2 (2022), pp. 364-381.</p>
+
+<p>Marchant, N.*, <b>Kaplan, A.</b>, Elazar, D. N., Rubinstein, B. I. P., and Steorts, R. C. <a href="" target="_blank">"d-blink: Distributed End-to-End Bayesian Entity Resolution"</a>. Journal of Computational and Graphical Statistics 30.2 (2021), pp. 406-421.</p>
+
+<h4>Software</h4>
+
+<p><a href = "https://cran.r-project.org/web/packages/bstrl/index.html" target="_blank">bstrl</a>: Perform record linkage on streaming files using recursive Bayesian updating. R package version 0.1.0. 2022.</p>
+
+<p><a href = "https://cran.r-project.org/web/packages/representr/index.html" target="_blank">representr</a>: Create Representative Records After Entity Resolution. R package version 0.1.4. 2022.</p>
+
+<p><a href = "https://github.com/cleanzr/dblink">dblink</a>: Distributed End-to-End Bayesian Entity Resolution. Scala package version 0.2.0. 2020.</p>
+
+<h1>MCMC for Resampling with Complex Dependency</h1>
+
+<p>For data with complex dependency (including spatial, graph, network, and other data structures), conditionally specified models can be formulated on the basis of an underlying Markov random field. This approach often provides an attractive alternative to direct specification of a full joint data distribution, which may be difficult for large, correlated data structures. For such Markov random field models, I have developed a new and fast way to simulate data, which has provable convergence rate properties, such as geometric ergodicity. This method has been used to allow for hypothesis testing with statistics with no known asymptotic distribution, such as those for assessing goodness-of-fit. </p>
+
+<h4>Papers</h4>
+
+<p>Biswas, E.*, <b>Kaplan, A.</b>, and Nordman, D. "A Goodness-of-Fit Test for Binary Spatial Data" (2023+).</p>
+
+<p><b>Kaplan, A.</b>, Kaiser, M. S., Lahiri, S. N., and Nordman, D. J. <a href = "https://amstat.tandfonline.com/doi/abs/10.1080/10618600.2019.1668800#.Y9rcUi-B0wd" target = "_blank">"Simulating Markov Random Fields With a Conclique-Based Gibbs Sampler"</a>. Journal of Computational and Graphical Statistics 29.2 (2020), pp. 286-296.</p>
+
+<h4>Software</h4>
+
+<p><a href = "https://github.com/andeek/conclique" target="_blank">conclique</a>: Gibbs Sampling for Spatial Data and Concliques. R package version 0.1.0. 2017.</p>
+
+<h1>Instability and Degeneracy of Deep Learning</h1>
+
+<p>A restricted Boltzmann machine (RBM) is an undirected graphical model used for image classification, and in recent years, has risen to prominence due to their connection to deep learning. A RBM is characterized by having two layers, one hidden and one visible, and is described as a generative model. By incorporating a hidden layer, RBMs are thought to have the ability to encode very complex and rich structures in data, making them attractive for supervised learning. However, the statistical properties of this model for conceptualizing data are largely unexplored in the literature, and the commonly cited fitting methodology remains heuristic-based and abstruse. I provide steps toward a thorough understanding of the model and its behavior from the perspective
+of statistical theory and then explore the possibility of a rigorous fitting methodology via MCMC.</p>
+
+<h4>Papers</h4>
+
+<p><b>Kaplan, A.</b>, Nordman, D., and Vardeman, S. <a href = "https://academic.oup.com/imaiai/article/9/3/627/5612733" target = "_blank">"On the S-instability and degeneracy of discrete deep learning models"</a>. Information and Inference: A Journal of the IMA 9.3 (2020), pp. 627-655.</p>
+
+<p><b>Kaplan, A.</b>, Nordman, D., and Vardeman, S. <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/sam.11396" target="_blank">"Properties and Bayesian fitting of restricted Boltzmann machines"</a>. Statistical Analysis and Data Mining: The ASA Data Science Journal 12.1 (2019), pp. 23-38.</p>
+
+<h4>Code and Apps</h4>
+
+<p><a href="https://github.com/andeek/rbm" target="_blank">Reproducible Code</a> supplement to "Properties and Bayesian fitting of restricted Boltzmann machines."</p>
+
+<p><a href="https://andeek.shinyapps.io/rbms/" target="_blank">Shiny Apps</a> to visualize and understand the properties of restricted Boltzmann machines.</p>
+
+<h1>Interactive and Statistical Graphics</h1>
+
+<p>Across all my research, I place a strong value on how research is conducted and results are shared. Specifically, I am a proponent of reproducibility in research. My work is open sourced, developed in the open online community, and is often accompanied by a software package or application. By espousing these practices, I have enjoyed collaborations with other researchers in the field with the same values, and our work has greatly benefited. Much of that collaboration has happened in the field of interactive statistical graphics.</p>
+
+<h4>Papers</h4>
+
+<p><b>Kaplan, A.</b> and Bien, J. <a href="https://www.tandfonline.com/doi/full/10.1080/00031305.2022.2087734" target="_blank">"Interactive Exploration of Large Dendrograms with Prototypes"</a>. The American Statistician 0.0 (2022), pp. 1-11.</p>
+
+<p><b>Kaplan, A.</b> and Hare, E. <a href="https://link.springer.com/article/10.1007/s00180-018-0850-7" target="_blank">"Putting Down Roots: A Graphical Exploration of Community Attachment"</a>. Computational Statistics 34.4 (2019), pp. 1449-1464.</p>
+
+<p>Hare, E. and <b>Kaplan, A.</b> <a href="https://www.tandfonline.com/doi/abs/10.1080/10618600.2016.1276839" target="_blank">"Designing Modular Software: A Case Study in Introductory Statistics"</a>. Journal of Computational and Graphical Statistics 26.3 (2017), pp. 493-500.</p>
+
+<p><b>Kaplan, A.</b>, Hofmann, H., and Nordman, D. <a href="https://link.springer.com/article/10.1007/s00180-016-0663-5" target="_blank">"An interactive graphical method for community detection in network data"</a>. Computational Statistics 32.2 (2017), pp. 535-557.</p>
+
+<p><b>Kaplan, A.</b>, Hare, E., Hofmann, H., and Cook, D. <a href="https://www.tandfonline.com/doi/abs/10.1080/09332480.2014.890866" target="_blank">"Can you buy a president? Politics after the Tillman Act"</a>. Chance 27.1 (2014), pp. 20-30.</p>
+
+<h4>Software</h4>
+
+<p><a href = "https://cran.r-project.org/web/packages/protoshiny/index.html" target="_blank">protoshiny</a>: Interactive Dendrograms for Visualizing Hierarchical Clusters with Prototypes. R package version 0.1.0. 2022.</p>
+
+<p><a href = "https://github.com/gammarama/intRo" target="_blank">intRo</a>: Download and Run the intRo Statistical Software. R package version 0.1.0. 2017.</p>
+
+<h4>Code and Apps</h4>
+
+<p><a href = "https://andeek.shinyapps.io/CommuniD3/" target="_blank">Shiny App</a> to explore community attachment, supplement to "Putting Down Roots: A Graphical Exploration of Community Attachment"</p>
+<p><a href = "https://github.com/gammarama/DataExpo2013" target="_blank">Reproducible Code</a> supplement to "Putting Down Roots: A Graphical Exploration of Community Attachment"</p>
+<p><a href = "http://intro-stats.com" target="_blank">Shiny App</a> for teaching introductory statistics, supplement to "Designing Modular Software: A Case Study in Introductory Statistics"</p>
+<p><a href = "https://andeek.shinyapps.io/gravicom/" target="_blank">Shiny App</a> to visually perform community detection in networks, supplement to "An interactive graphical method for community detection in network data"</p>
+<p><a href = "https://github.com/andeek/gravicom" target="_blank">Reproducible Code</a> supplement to "An interactive graphical method for community detection in network data"</p>
+<p><a href = "https://github.com/gammarama/elections" target="_blank">Reproducible Code</a> supplement to "Can you buy a president? Politics after the Tillman Act"</p>
+
+<h1>Miscellaneous</h1>
+
+<p>According to John Tukey, "the best thing about being a statistician is that you get to play in everyone's backyard." I don't disagree. I love being able to work (and play) in a variety of topics. Some of this work does not fit nicely into the above topics, but was still incredibly rewarding.</p>
+
+<h4>Papers</h4>
+
+<p>Keller, J. P., Zhou, T., Kaplan, A., Anderson, G. B., and Zhou, W. <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/sim.9382", target="_blank">"Tracking the transmission dynamics of COVID-19 with a time-varying coefficient state-space model"</a>. Statistics in Medicine 41.15 (2022), pp. 2745-2767.</p>
+
+<h4>Software</h4>
+
+<p><a href = "https://github.com/andeek/forestr" target="_blank">forestr</a>: Random Forests with a User Created Splitting Criterion. R package version 0.0.0.9000. 2015.</p>
 
 
 
-<div class="wrapper">
-    <div class="left">
-        <a href="http://github.com/cleanzr/representr" target=_blank><img src="images/rl.png" class="image-thumbnail"></a>
-    </div>
-    <div class="right">
-        <h4>Record linkage and the Downstream Task</h4>
-        <p>
-         Linking data from multiple databases increases both the size and scope of a dataset, enabling post-processing tasks such as linear regression or capture-recapture to be performed. This work focused on novel approaches to multiple downstream tasks that allow for errors to propagate through the analyses and provide accurate inference. Joint work with <a href="https://scholar.google.com/citations?user=rVatgcYAAAAJ&hl=en" target=_blank>Brenda Betancourt</a> and <a href="https://www2.stat.duke.edu/~rcs46/bio.html" target=_blank>Rebecca Steorts</a>.
-        </p>
-        <p>
-          [<a href="https://www.tandfonline.com/doi/abs/10.1080/00031305.2022.2041482" target=_blank/>paper</a>][<a href="https://cran.r-project.org/package=representr" target=_blank/>package</a>]
-        </p>
-    </div>
-</div>
-
-<div class="wrapper">
-    <div class="left">
-        <a href="http://github.com/cleanzr/representr" target=_blank><img src="images/dblink.png" class="image-thumbnail"></a>
-    </div>
-    <div class="right">
-        <h4>Computationally Scalable Bayesian Record Linkage</h4>
-        <p>
-         Linking data from multiple databases can increase the utility of many datasets and performing this linkage procedure using Bayesian methods can greatly enhance the analysis that results through the opportunity for error propagation. Unfortunately, Bayesian record linkage models are computationally complex and can be slow to fit. This work allows for greater scalability. Joint work with <a href="https://www.ngmarchant.net" target=_blank>Neil Marchant</a>, <a href="https://www2.stat.duke.edu/~rcs46/bio.html" target=_blank>Rebecca Steorts</a>, <a href="https://www.bipr.net/" target=_blank>Ben Rubenstein</a>, and Daniel N. Elazar. 
-        </p>
-        <p>
-          [<a href="https://www.tandfonline.com/doi/abs/10.1080/10618600.2020.1825451" target=_blank/>paper</a>][<a href="https://github.com/cleanzr/dblink" target=_blank/>github</a>]
-        </p>
-    </div>
-</div>
-
-<div class="wrapper">
-    <div class="left">
-        <a href="http://github.com/andeek/conclique" target=_blank><img src="images/conclique.png" class="image-thumbnail"></a>
-    </div>
-    <div class="right">
-        <h4>conclique</h4>
-        <p>
-        A fast way to simulate data with Markovian properties, which has provable MCMC geometric ergodicity. Implemented in a flexible R package that allows the user to specify an arbitrary model.
-        </p>
-        <p>
-        [<a href="https://arxiv.org/abs/1808.04739" target=_blank/>paper</a>][<a href="http://github.com/andeek/conclique" target=_blank/>package</a>]
-        </p>
-    </div>
-</div>
-
-<div class="wrapper">
-    <div class="left">
-        <a href="http://github.com/andeek/rbm" target=_blank><img src="images/rbm.png" class="image-thumbnail"></a>
-    </div>
-    <div class="right">
-        <h4>Restricted Boltzmann Machines</h4>
-        <p>
-        Steps toward a thorough understanding of the RBM model class and its behavior from the perspective of statistical theory and exploration of the possibility of a rigorous fitting methodology via MCMC.
-        </p>
-        <p>
-        [<a href="https://arxiv.org/abs/1612.01158" target=_blank/>paper</a>][<a href="https://arxiv.org/abs/1612.01159" target=_blank/>paper</a>][<a href="https://andeek.shinyapps.io/rbms/" target=_blank>shiny apps</a>][<a href="http://github.com/andeek/rbm" target=_blank>github</a>]
-        </p>
-    </div>
-</div>
-
-<div class="wrapper">
-    <div class="left">
-        <a href="http://github.com/gammarama/intRo" target=_blank><img src="images/intro.png" class="image-thumbnail"></a>
-    </div>
-    <div class="right">
-        <h4>intRo</h4>
-        <p>Shiny-based statistics learning application to foster student interest in coding while learning basic statistics. Joint work with <a href="https://github.com/erichare" target=_blank>Eric Hare</a>.
-        </p>
-        <p>
-        [<a href="https://arxiv.org/abs/1608.02533" target=_blank/>paper</a>][<a href="http://intro-stats.com" target=_blank/>tool</a>][<a href="http://github.com/gammarama/intRo" target=_blank/>package</a>]
-        </p>
-    </div>
-</div>
-
-<div class="wrapper">
-    <div class="left">
-        <a href="http://github.com/andeek/protoshiny" target=_blank><img src="images/protoshiny.png" class="image-thumbnail"></a>
-    </div>
-    <div class="right">
-        <h4>Protoshiny</h4>
-        <p>
-        Shiny app to interactively visualize large dendrograms resulting from hierarchical clustering with prototypes. Joint work with <a href="http://www-bcf.usc.edu/~jbien/" target=_blank>Jacob Bien</a>.
-        </p>
-        <p>
-        [<a href="https://arxiv.org/pdf/2206.01703" target=_blank/>paper</a>][<a href="https://cran.r-project.org/package=protoshiny" target=_blank/>package</a>]
-        </p>
-    </div>
-</div>
-
-<div class="wrapper">
-    <div class="left">
-        <a href="http://github.com/andeek/gravicom" target=_blank><img src="images/gravicom.png" class="image-thumbnail"></a>
-    </div>
-    <div class="right">
-        <h4>gravicom</h4>
-        <p>
-          Graphical Visualization of Communities. A web application for community detection in network data through direct user interaction. Built on Shiny and D3.
-        </p>
-        <p>
-        [<a href="http://link.springer.com/article/10.1007/s00180-016-0663-5" target=_blank>paper</a>][<a href="https://andeek.shinyapps.io/gravicom/" target=_blank>tool</a>][<a href="http://github.com/andeek/gravicom" target=_blank>github</a>]
-        </p>
-    </div>
-</div>
-
-<div class="wrapper">
-    <div class="left">
-        <a href="http://github.com/yongheng/ncs-dataviz" target=_blank><img src="images/ncs.png" class="image-thumbnail"></a>
-    </div>
-    <div class="right">
-        <h4>NCS Dataviz</h4>
-        <p>
-        A graphical tool that allows users to understand variable relationships within the 2012 NCS Vanguard Study dataset. Built using D3. Joint work with <a href="https://github.com/yongheng" target=_blank>Yongeng Lin</a> from <a href="http://www.norc.org" target=_blank>NORC</a>.
-        </p>
-        <p>
-        [<a href="http://yongheng.github.io/ncs-dataviz/index.html" target=_blank/>tool</a>][<a href="http://github.com/yongheng/ncs-dataviz" target=_blank/>github</a>]
-        </p>
-    </div>
-</div>
-
-<div class="wrapper">
-    <div class="left">
-        <a href="http://github.com/gammarama/DataExpo2013" target=_blank><img src="images/communid3.png" class="image-thumbnail"></a>
-    </div>
-    <div class="right">
-        <h4>CommuniD3</h4>
-        <p>
-        Exploratory tool based on 'Soul of the Community' data generated by the Knight Foundation in cooperation with Gallup. Project was winner of the <a href="http://streaming.stat.iastate.edu/dataexpo/2013/" target=_blank>2013 Data Exposition</a>. Created using Shiny and D3. Joint work with <a href="https://github.com/erichare">Eric Hare</a>.
-        </p>
-        <p>
-        [<a href="https://arxiv.org/abs/1608.04843" target=_blank>paper</a>][<a href="https://andeek.shinyapps.io/CommuniD3/" target=_blank>tool</a>][<a href="http://github.com/gammarama/DataExpo2013" target=_blank>github</a>]
-        <p>
-    </div>
-</div>
-
-<div class="wrapper">
-    <div class="left">
-        <a href="http://github.com/gammarama/elections" target=_blank><img src="images/election.png" class="image-thumbnail"></a>
-    </div>
-    <div class="right">
-        <h4>Election 2012</h4>
-        <p>Examined campaign contributions and political action committee spending data from the Federal Election Commission,
-      	and interpreted for the 2012 election cycle. Joint work with <a href="http://dicook.github.io" target=_blank>Di Cook</a>, <a href="http://hofmann.public.iastate.edu/" target=_blank>Heike Hofmann</a>, <a href="https://github.com/erichare">Eric Hare</a>, and <a href="http://srvanderplas.github.io/" target=_blank>Susan VanderPlas</a>.</p>
-        <p>
-    		[<a href="http://amstat.tandfonline.com/doi/abs/10.1080/09332480.2014.890866" target=_blank>paper</a>][<a href="http://gammarama.github.io/election.html" target=_blank>supplement</a>][<a href="http://dicook.github.io/election2012/index.html" target=_blank>site</a>][<a href="http://github.com/gammarama/elections" target=_blank>github</a>]
-    		</p>
-    </div>
-</div>
